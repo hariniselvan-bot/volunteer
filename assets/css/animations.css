@@ -1,0 +1,87 @@
+/* ============================================================
+   animations.css — keyframes, marquee, floating, transitions
+   ============================================================ */
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes float-y-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(201, 244, 90, 0.5); }
+  70% { box-shadow: 0 0 0 16px rgba(201, 244, 90, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(201, 244, 90, 0); }
+}
+
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+
+@keyframes draw-line {
+  from { stroke-dashoffset: var(--dash, 300); }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes leaf-sway {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(5deg); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(14px, -18px) rotate(6deg); }
+  66% { transform: translate(-12px, -8px) rotate(-5deg); }
+}
+
+/* Floating elements */
+.float-slow { animation: float-y 6s ease-in-out infinite; }
+.float-soft { animation: float-y-soft 4.5s ease-in-out infinite; }
+.pulse-dot { animation: pulse-ring 2.4s ease-out infinite; }
+.sway { animation: leaf-sway 5s ease-in-out infinite; transform-origin: bottom center; }
+.drift { animation: drift 9s ease-in-out infinite; }
+
+/* Buttons magnetic baseline (JS adds transform) */
+.btn, .slider-btn, .hamburger, .to-top { transition-property: transform, box-shadow, background, color, border-color; }
+
+/* Image mask reveal base state (GSAP enhances) */
+.mask-reveal { clip-path: inset(0 0 100% 0); }
+.no-js .mask-reveal, .no-gsap .mask-reveal { clip-path: none; }
+
+/* Card tilt perspective */
+.tilt { transform-style: preserve-3d; will-change: transform; }
+
+/* SVG draw-on helper */
+.draw-path { stroke-dasharray: var(--dash, 300); stroke-dashoffset: var(--dash, 300); }
+.draw-path.drawn { animation: draw-line 1.6s var(--ease) forwards; }
+
+/* Link underline micro-interaction (nav/footer inline text links) */
+.u-line { position: relative; }
+.u-line::after {
+  content: ''; position: absolute; left: 0; bottom: -3px;
+  width: 100%; height: 1.5px; background: currentColor;
+  transform: scaleX(0); transform-origin: right;
+  transition: transform 0.4s var(--ease);
+}
+.u-line:hover::after { transform: scaleX(1); transform-origin: left; }
+
+[data-aos]:not(.aos-animate) { opacity: 1; transform: none; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15s !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee-track { animation: none; flex-wrap: wrap; }
+  .float-slow, .float-soft, .drift, .sway { animation: none; }
+}

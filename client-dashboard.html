@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stackly | Volunteer Dashboard</title>
+<link href="assets/svg/stackly-symbol-lime.svg" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --black:#111111;
+  --black-2:#191919;
+  --lime:#c8ff00;
+  --lime-soft:#efffc2;
+  --bg:#f4f5f1;
+  --white:#ffffff;
+  --text:#151515;
+  --muted:#777b73;
+  --border:#e3e5df;
+  --shadow:0 10px 30px rgba(17,17,17,.06);
+  --radius:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Manrope",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow:hidden;
+}
+button,input{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+
+.app{
+  display:flex;
+  height:100vh;
+  width:100%;
+}
+
+/* SIDEBAR */
+.sidebar{
+  width:270px;
+  flex:0 0 270px;
+  height:100vh;
+  background:var(--black);
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  padding:28px 18px 18px;
+  position:relative;
+  z-index:30;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  min-height:58px;
+  padding:0 8px 25px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.logo img{
+  width:155px;
+  max-width:100%;
+  display:block;
+}
+.portal-label{
+  color:#9b9b9b;
+  font-size:11px;
+  letter-spacing:1.5px;
+  font-weight:800;
+  margin:26px 14px 12px;
+}
+.nav{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+.nav-btn{
+  width:100%;
+  border:0;
+  background:transparent;
+  color:#d5d5d5;
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:13px 14px;
+  border-radius:12px;
+  font-weight:700;
+  font-size:13px;
+  text-align:left;
+  transition:.2s ease;
+}
+.nav-btn:hover{
+  background:#202020;
+  color:#fff;
+}
+.nav-btn.active{
+  background:var(--lime);
+  color:#111;
+}
+.nav-icon{
+  width:20px;
+  text-align:center;
+  font-size:16px;
+  flex:0 0 20px;
+}
+.sidebar-bottom{
+  margin-top:auto;
+  border-top:1px solid rgba(255,255,255,.12);
+  padding:18px 10px 0;
+}
+.profile-mini{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:15px;
+}
+.avatar{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:var(--lime);
+  color:#111;
+  display:grid;
+  place-items:center;
+  font-size:12px;
+  font-weight:900;
+}
+.mini-name{
+  font-size:12px;
+  font-weight:800;
+  color:#fff;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.mini-email{
+  font-size:10px;
+  color:#888;
+  margin-top:2px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.signout{
+  width:100%;
+  background:transparent;
+  border:1px solid rgba(255,255,255,.22);
+  color:#fff;
+  padding:11px;
+  border-radius:11px;
+  font-weight:800;
+  font-size:12px;
+  transition:.2s;
+}
+.signout:hover{
+  background:#fff;
+  color:#111;
+}
+
+/* MAIN */
+.main{
+  min-width:0;
+  flex:1;
+  height:100vh;
+  overflow-y:auto;
+  background:var(--bg);
+}
+.topbar{
+  height:92px;
+  padding:0 34px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--border);
+  background:rgba(244,245,241,.92);
+  position:sticky;
+  top:0;
+  z-index:20;
+  backdrop-filter:blur(12px);
+}
+.page-kicker{
+  color:#7c8300;
+  font-size:10px;
+  letter-spacing:1.7px;
+  font-weight:900;
+  margin-bottom:6px;
+}
+.page-title{
+  font-size:25px;
+  line-height:1.1;
+  font-weight:800;
+}
+.top-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.icon-btn{
+  width:43px;
+  height:43px;
+  border:1px solid #d6d8d1;
+  border-radius:12px;
+  background:#fff;
+  display:grid;
+  place-items:center;
+  font-size:17px;
+  transition:.2s;
+}
+.icon-btn:hover{border-color:#111;transform:translateY(-1px)}
+.user-top{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-left:6px;
+}
+.user-top .avatar{width:40px;height:40px}
+.top-name{
+  font-size:12px;
+  font-weight:800;
+  max-width:160px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.top-email{
+  color:var(--muted);
+  font-size:10px;
+  margin-top:2px;
+  max-width:180px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.content{
+  padding:30px 36px 50px;
+  max-width:1600px;
+  margin:auto;
+}
+.page{display:none;animation:fade .25s ease}
+.page.active{display:block}
+@keyframes fade{from{opacity:.2;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* HERO */
+.welcome{
+  min-height:190px;
+  background:var(--black);
+  color:#fff;
+  border-radius:24px;
+  padding:31px 34px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.welcome:after{
+  content:"";
+  position:absolute;
+  width:280px;
+  height:280px;
+  border:1px solid rgba(200,255,0,.25);
+  border-radius:50%;
+  right:-90px;
+  top:-145px;
+}
+.welcome-copy{position:relative;z-index:2}
+.welcome-label{
+  color:var(--lime);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.5px;
+  margin-bottom:12px;
+}
+.welcome h1{
+  font-family:"Playfair Display",serif;
+  font-size:36px;
+  line-height:1.1;
+  margin-bottom:10px;
+}
+.welcome p{
+  color:#b9b9b9;
+  font-size:12px;
+  max-width:590px;
+  line-height:1.7;
+}
+.hours{
+  position:relative;
+  z-index:2;
+  text-align:right;
+  padding-right:8px;
+}
+.hours strong{
+  color:var(--lime);
+  font-size:31px;
+  display:block;
+}
+.hours span{
+  color:#999;
+  font-size:10px;
+}
+
+/* STATS */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin:18px 0;
+}
+.stat{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  min-height:145px;
+  box-shadow:var(--shadow);
+  position:relative;
+}
+.stat-icon{
+  position:absolute;
+  right:18px;
+  top:18px;
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  background:var(--lime);
+  display:grid;
+  place-items:center;
+  font-weight:900;
+}
+.stat-label{
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:26px;
+}
+.stat-number{
+  font-size:34px;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+.stat-note{
+  font-size:10px;
+  color:#768000;
+  font-weight:800;
+  margin-top:5px;
+}
+
+/* GRID PANELS */
+.two-col{
+  display:grid;
+  grid-template-columns:1.35fr .9fr;
+  gap:18px;
+}
+.panel{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:24px;
+  box-shadow:var(--shadow);
+}
+.panel-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:18px;
+}
+.panel-title{font-size:16px;font-weight:800}
+.panel-sub{font-size:10px;color:#999;margin-top:4px}
+.link-btn{
+  border:0;
+  background:transparent;
+  color:#687000;
+  font-size:11px;
+  font-weight:900;
+}
+.list{display:flex;flex-direction:column}
+.list-row{
+  min-height:69px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+  border-top:1px solid #eceee9;
+}
+.date-box,.round-box{
+  flex:0 0 42px;
+  width:42px;
+  height:42px;
+  border-radius:11px;
+  background:var(--lime);
+  display:grid;
+  place-items:center;
+  font-size:11px;
+  font-weight:900;
+}
+.row-main{min-width:0;flex:1}
+.row-title{
+  font-size:12px;
+  font-weight:800;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.row-meta{
+  color:#8a8d87;
+  font-size:9px;
+  margin-top:4px;
+}
+.badge{
+  flex:0 0 auto;
+  padding:6px 10px;
+  background:var(--lime-soft);
+  border-radius:20px;
+  font-size:9px;
+  font-weight:900;
+}
+.recommend .list-row{gap:12px}
+.recommend .round-box{text-transform:uppercase}
+.empty{
+  text-align:center;
+  padding:35px 15px;
+  color:#888;
+  font-size:12px;
+}
+
+/* INNER PAGES */
+.section-heading{
+  margin-bottom:22px;
+}
+.section-heading h2{font-size:28px;margin-bottom:6px}
+.section-heading p{color:var(--muted);font-size:12px}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.op-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+.op-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+.op-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:var(--lime);
+  display:grid;place-items:center;font-weight:900;
+}
+.op-card h3{font-size:14px;margin-bottom:8px}
+.op-card p{font-size:10px;color:var(--muted);line-height:1.6}
+.op-meta{margin:16px 0;border-top:1px solid var(--border);padding-top:13px;font-size:10px;color:#666;line-height:2}
+.primary{
+  width:100%;border:0;border-radius:10px;background:#111;color:#fff;padding:11px;font-size:11px;font-weight:800;
+}
+.primary:hover{background:#2a2a2a}
+.filters{
+  display:flex;gap:10px;margin-bottom:18px;
+}
+.search{
+  flex:1;max-width:360px;border:1px solid var(--border);background:#fff;border-radius:11px;padding:11px 13px;outline:none;font-size:11px;
+}
+.select{
+  border:1px solid var(--border);background:#fff;border-radius:11px;padding:0 13px;font-size:11px;outline:none;
+}
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:650px}
+th,td{padding:14px 10px;border-bottom:1px solid var(--border);text-align:left;font-size:11px}
+th{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:#888}
+.status{font-weight:900}
+.status.confirmed{color:#647200}
+.status.pending{color:#b08000}
+.status.rejected{color:#b03d3d}
+.progress-wrap{margin-top:10px}
+.progress-line{height:7px;background:#edf0e8;border-radius:20px;overflow:hidden}
+.progress-line span{display:block;height:100%;background:var(--lime);border-radius:20px}
+.message{
+  display:flex;gap:13px;padding:16px 0;border-bottom:1px solid var(--border);
+}
+.message:last-child{border-bottom:0}
+.message h4{font-size:12px;margin-bottom:5px}
+.message p{font-size:10px;color:var(--muted);line-height:1.6}
+.profile-grid{
+  display:grid;grid-template-columns:.7fr 1.3fr;gap:18px;
+}
+.profile-card{text-align:center}
+.big-avatar{
+  width:88px;height:88px;border-radius:50%;background:var(--lime);display:grid;place-items:center;margin:4px auto 15px;font-size:24px;font-weight:900;
+}
+.profile-card h3{font-size:17px}
+.profile-card p{font-size:10px;color:var(--muted);margin-top:5px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field label{display:block;font-size:10px;font-weight:800;margin-bottom:6px}
+.field input{
+  width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:10px;background:#fafbf8;outline:none;font-size:11px;
+}
+.field.full{grid-column:1/-1}
+
+/* MOBILE */
+.mobile-top{
+  display:none;
+}
+.overlay{display:none}
+
+@media(max-width:1100px){
+  .sidebar{width:230px;flex-basis:230px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .cards{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:800px){
+  body{overflow:hidden}
+  .sidebar{
+    position:fixed;
+    left:-285px;
+    top:0;
+    width:270px;
+    height:100dvh;
+    transition:left .25s ease;
+    box-shadow:20px 0 50px rgba(0,0,0,.2);
+    overflow:hidden;
+  }
+  .sidebar.open{left:0}
+  .overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:25;
+  }
+  .overlay.show{display:block}
+  .main{width:100%}
+  .topbar{
+    height:76px;
+    padding:0 17px 0 18px;
+    background:rgba(244,245,241,.97);
+  }
+  .topbar .top-actions{display:none}
+  .mobile-top{display:flex;align-items:center;gap:12px}
+  .hamburger{
+    width:42px;height:42px;border:1px solid var(--border);background:#fff;border-radius:11px;font-size:20px;
+  }
+  .mobile-logo{
+    display:flex;
+    align-items:center;
+    min-width:0;
+  }
+  .mobile-logo img{
+    width:125px;
+    height:auto;
+    display:block;
+    object-fit:contain;
+    opacity:1;
+    visibility:visible;
+    filter:
+      brightness(0)
+      saturate(100%)
+      invert(84%)
+      sepia(100%)
+      saturate(1800%)
+      hue-rotate(25deg)
+      brightness(105%)
+      contrast(105%);
+  }
+  .content{padding:20px 15px 35px}
+  .welcome{padding:25px 22px;min-height:185px;border-radius:19px}
+  .welcome h1{font-size:29px}
+  .hours{display:none}
+  .two-col,.profile-grid{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .page-title{font-size:21px}
+  .page-kicker{font-size:8px}
+  .stats{grid-template-columns:1fr 1fr;gap:10px}
+  .stat{min-height:130px;padding:15px}
+  .stat-icon{width:30px;height:30px;right:12px;top:12px}
+  .stat-label{font-size:10px;margin-bottom:22px}
+  .stat-number{font-size:27px}
+  .panel{padding:17px}
+  .list-row{min-height:66px}
+  .badge{display:none}
+  .form-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .filters{flex-direction:column}
+  .search{max-width:none}
+  .select{height:40px}
+}
+
+/* --- Sidebar page-specific content --- */
+.extra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.extra-grid.two{grid-template-columns:repeat(2,1fr)}
+.info-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+.info-card h3{font-size:14px;margin-bottom:8px}
+.info-card p{font-size:10px;color:var(--muted);line-height:1.7}
+.info-list{margin-top:13px;display:flex;flex-direction:column;gap:9px}
+.info-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-top:1px solid var(--border)}
+.info-item:first-child{border-top:0;padding-top:0}
+.info-dot{width:30px;height:30px;flex:0 0 30px;display:grid;place-items:center;border-radius:9px;background:var(--lime);color:#111;font-size:8px;font-weight:900}
+.info-item strong{display:block;font-size:10px;margin-bottom:3px}
+.info-item span{display:block;color:var(--muted);font-size:9px;line-height:1.5}
+.mini-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.mini-metric{background:#f7f8f4;border:1px solid var(--border);border-radius:12px;padding:12px}
+.mini-metric strong{display:block;font-size:18px;margin-bottom:3px}
+.mini-metric span{color:var(--muted);font-size:8px}
+.timeline{display:flex;flex-direction:column}
+.timeline-row{display:grid;grid-template-columns:58px 1fr;gap:12px;padding:13px 0;border-top:1px solid var(--border)}
+.timeline-time{font-size:9px;font-weight:900;color:#707800}
+.timeline-row strong{font-size:10px}
+.timeline-row p{margin-top:3px;color:var(--muted);font-size:9px;line-height:1.5}
+@media(max-width:1100px){.extra-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:800px){.extra-grid,.extra-grid.two{grid-template-columns:1fr}}
+
+.sidebar{overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#3a3a3a transparent}
+
+@media(max-width:800px){.sidebar{overflow-y:auto;overflow-x:hidden}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+<div class="logo">
+<img alt="Stackly Logo" src="assets/img/impact/logo STAC.webp" style="filter:brightness(0) saturate(100%) invert(84%) sepia(100%) saturate(1800%) hue-rotate(25deg) brightness(105%) contrast(105%);"/>
+</div>
+<div class="portal-label">VOLUNTEER PORTAL</div>
+<nav class="nav">
+<button class="nav-btn active" data-page="dashboard"><span class="nav-icon">⌂</span>My Dashboard</button>
+<button class="nav-btn" data-page="opportunities"><span class="nav-icon">◎</span>Opportunities</button>
+<button class="nav-btn" data-page="applications"><span class="nav-icon">✓</span>My Applications</button>
+<button class="nav-btn" data-page="schedule"><span class="nav-icon">◷</span>My Schedule</button>
+<button class="nav-btn" data-page="impact"><span class="nav-icon">◉</span>Hours &amp; Impact</button>
+<button class="nav-btn" data-page="messages"><span class="nav-icon">✉</span>Messages</button>
+<button class="nav-btn" data-page="profile"><span class="nav-icon">♟</span>My Profile</button>
+</nav>
+<div class="sidebar-bottom">
+<div class="profile-mini">
+<div class="avatar" id="sideAvatar">IF</div>
+<div style="min-width:0">
+<div class="mini-name" id="sideName">Volunteer</div>
+<div class="mini-email" id="sideEmail">volunteer@email.com</div>
+</div>
+</div>
+<button class="signout" id="signOut">Sign Out</button>
+</div>
+</aside>
+<div class="overlay" id="overlay"></div>
+<main class="main" id="main">
+<header class="topbar">
+<div class="mobile-top">
+<button aria-label="Open menu" class="hamburger" id="menuBtn">☰</button>
+<div class="mobile-logo">
+<img alt="Stackly Logo" src="assets/img/impact/logo STAC.webp" style="filter:brightness(0) saturate(100%) invert(84%) sepia(100%) saturate(1800%) hue-rotate(25deg) brightness(105%) contrast(105%);"/>
+</div>
+</div>
+<div>
+<div class="page-kicker">STACKLY / VOLUNTEER</div>
+<div class="page-title" id="pageTitle">My Dashboard</div>
+</div>
+<div class="top-actions">
+<button aria-label="Search" class="icon-btn">⌕</button>
+<button aria-label="Messages" class="icon-btn">✉</button>
+<div class="user-top">
+<div class="avatar" id="topAvatar">IF</div>
+<div>
+<div class="top-name" id="topName">Volunteer</div>
+<div class="top-email" id="topEmail">volunteer@email.com</div>
+</div>
+</div>
+</div>
+</header>
+<div class="content">
+<!-- DASHBOARD -->
+<section class="page active" id="dashboard">
+<div class="welcome">
+<div class="welcome-copy">
+<div class="welcome-label">VOLUNTEER WORKSPACE</div>
+<h1>Welcome back, <span id="welcomeName">Volunteer</span>.</h1>
+<p>Find meaningful opportunities, manage your schedule and see the impact of your service.</p>
+</div>
+<div class="hours">
+<strong>24.5h</strong>
+<span>Hours this month</span>
+</div>
+</div>
+<div class="stats">
+<div class="stat">
+<div class="stat-icon">✓</div>
+<div class="stat-label">Applications</div>
+<div class="stat-number">08</div>
+<div class="stat-note">3 awaiting response</div>
+</div>
+<div class="stat">
+<div class="stat-icon">◷</div>
+<div class="stat-label">Upcoming Shifts</div>
+<div class="stat-number">06</div>
+<div class="stat-note">Next: Sep 14</div>
+</div>
+<div class="stat">
+<div class="stat-icon">●</div>
+<div class="stat-label">Total Hours</div>
+<div class="stat-number">186</div>
+<div class="stat-note">↑ 24.5h this month</div>
+</div>
+<div class="stat">
+<div class="stat-icon">↗</div>
+<div class="stat-label">People Helped</div>
+<div class="stat-number">742</div>
+<div class="stat-note">Across 12 initiatives</div>
+</div>
+</div>
+<div class="two-col">
+<div class="panel">
+<div class="panel-head">
+<div>
+<div class="panel-title">Upcoming Commitments</div>
+<div class="panel-sub">Your next 14 days</div>
+</div>
+<button class="link-btn" onclick="showPage('schedule')">View all</button>
+</div>
+<div class="list">
+<div class="list-row">
+<div class="date-box">14</div>
+<div class="row-main"><div class="row-title">Neighborhood Cleanup</div><div class="row-meta">09:00 AM · Central Park · 4 hours</div></div>
+<div class="badge">Confirmed</div>
+</div>
+<div class="list-row">
+<div class="date-box">18</div>
+<div class="row-main"><div class="row-title">Community Food Distribution</div><div class="row-meta">08:30 AM · East Hall · 5 hours</div></div>
+<div class="badge">Confirmed</div>
+</div>
+<div class="list-row">
+<div class="date-box">21</div>
+<div class="row-main"><div class="row-title">Senior Support Day</div><div class="row-meta">10:00 AM · West Center · 3 hours</div></div>
+<div class="badge">Scheduled</div>
+</div>
+<div class="list-row">
+<div class="date-box">25</div>
+<div class="row-main"><div class="row-title">Digital Skills Workshop</div><div class="row-meta">02:00 PM · Innovation Hub · 3 hours</div></div>
+<div class="badge">Scheduled</div>
+</div>
+</div>
+</div>
+<div class="panel recommend">
+<div class="panel-head">
+<div>
+<div class="panel-title">Recommended For You</div>
+<div class="panel-sub">Based on your interests</div>
+</div>
+<button class="link-btn" onclick="showPage('opportunities')">Explore</button>
+</div>
+<div class="list">
+<div class="list-row">
+<div class="round-box">ED</div>
+<div class="row-main"><div class="row-title">Reading Buddy Program</div><div class="row-meta">Education · 3h weekday</div></div>
+<div class="badge">Great fit</div>
+</div>
+<div class="list-row">
+<div class="round-box">EN</div>
+<div class="row-main"><div class="row-title">Tree Planting Day</div><div class="row-meta">Environment · Weekend</div></div>
+<div class="badge">New</div>
+</div>
+<div class="list-row">
+<div class="round-box">SK</div>
+<div class="row-main"><div class="row-title">Digital Skills Mentor</div><div class="row-meta">Skills · Flexible</div></div>
+<div class="badge">Great fit</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- OPPORTUNITIES -->
+<section class="page" id="opportunities">
+<div class="section-heading">
+<h2>Opportunities</h2>
+<p>Discover volunteer programs that match your interests and availability.</p>
+</div>
+<div class="filters">
+<input class="search" id="opSearch" placeholder="Search opportunities..." type="search"/>
+<select class="select" id="opFilter">
+<option value="all">All categories</option>
+<option value="Education">Education</option>
+<option value="Environment">Environment</option>
+<option value="Community">Community</option>
+<option value="Skills">Skills</option>
+</select>
+</div>
+<div class="cards" id="opCards">
+<article class="op-card" data-category="Education" data-search="reading buddy education">
+<div class="op-top"><div class="op-icon">ED</div><span class="badge">Great fit</span></div>
+<h3>Reading Buddy Program</h3><p>Help children build confidence and enjoy reading through weekly sessions.</p>
+<div class="op-meta">Education · Weekdays · 3 hours</div>
+<button class="primary">View Opportunity</button>
+</article>
+<article class="op-card" data-category="Environment" data-search="tree planting environment">
+<div class="op-top"><div class="op-icon">EN</div><span class="badge">New</span></div>
+<h3>Tree Planting Day</h3><p>Join a local environmental drive and help create greener public spaces.</p>
+<div class="op-meta">Environment · Weekend · 4 hours</div>
+<button class="primary">View Opportunity</button>
+</article>
+<article class="op-card" data-category="Skills" data-search="digital skills mentor">
+<div class="op-top"><div class="op-icon">SK</div><span class="badge">Flexible</span></div>
+<h3>Digital Skills Mentor</h3><p>Support learners with practical computer and digital literacy skills.</p>
+<div class="op-meta">Skills · Flexible · 3 hours</div>
+<button class="primary">View Opportunity</button>
+</article>
+<article class="op-card" data-category="Community" data-search="food distribution community">
+<div class="op-top"><div class="op-icon">FD</div><span class="badge">Popular</span></div>
+<h3>Community Food Distribution</h3><p>Help organize food packages and distribute essential supplies to families.</p>
+<div class="op-meta">Community · Saturday · 5 hours</div>
+<button class="primary">View Opportunity</button>
+</article>
+<article class="op-card" data-category="Community" data-search="senior support community">
+<div class="op-top"><div class="op-icon">SS</div><span class="badge">Open</span></div>
+<h3>Senior Support Day</h3><p>Spend time with seniors and assist with simple community activities.</p>
+<div class="op-meta">Community · Weekly · 3 hours</div>
+<button class="primary">View Opportunity</button>
+</article>
+<article class="op-card" data-category="Education" data-search="homework support education">
+<div class="op-top"><div class="op-icon">HS</div><span class="badge">Open</span></div>
+<h3>Homework Support</h3><p>Provide after-school academic support to students in your community.</p>
+<div class="op-meta">Education · Evenings · 2 hours</div>
+<button class="primary">View Opportunity</button>
+</article>
+</div>
+
+<div class="extra-grid">
+<div class="info-card"><h3>Cause Explorer</h3><p>Explore opportunities by the type of community change you want to support.</p>
+<div class="info-list"><div class="info-item"><div class="info-dot">ED</div><div><strong>Education</strong><span>Mentoring, reading and student support.</span></div></div>
+<div class="info-item"><div class="info-dot">EN</div><div><strong>Environment</strong><span>Tree planting and local restoration.</span></div></div></div></div>
+<div class="info-card"><h3>Availability Match</h3><div class="mini-metrics"><div class="mini-metric"><strong>12</strong><span>Good matches</span></div><div class="mini-metric"><strong>4</strong><span>Weekend roles</span></div><div class="mini-metric"><strong>8</strong><span>Flexible roles</span></div></div><p style="margin-top:14px">Your current availability matches several open programs.</p></div>
+<div class="info-card"><h3>Explore Before Applying</h3><div class="info-list"><div class="info-item"><div class="info-dot">01</div><div><strong>Read the role</strong><span>Check duties, time commitment and location.</span></div></div><div class="info-item"><div class="info-dot">02</div><div><strong>Check the schedule</strong><span>Choose roles that fit your calendar.</span></div></div></div></div>
+</div>
+<div class="extra-grid two">
+<div class="panel"><div class="panel-head"><div><div class="panel-title">Opportunity Calendar</div><div class="panel-sub">Upcoming discovery windows</div></div></div><div class="timeline"><div class="timeline-row"><div class="timeline-time">SEP 14</div><div><strong>Community roles</strong><p>Cleanup and neighborhood support opportunities.</p></div></div><div class="timeline-row"><div class="timeline-time">SEP 18</div><div><strong>Food support</strong><p>Distribution and logistics roles available.</p></div></div><div class="timeline-row"><div class="timeline-time">SEP 21</div><div><strong>Education</strong><p>Mentoring and learner-support openings.</p></div></div></div></div>
+<div class="panel"><div class="panel-head"><div><div class="panel-title">Role Types</div><div class="panel-sub">Different ways to contribute</div></div></div><div class="info-list"><div class="info-item"><div class="info-dot">ON</div><div><strong>On-site</strong><span>Work directly with community teams.</span></div></div><div class="info-item"><div class="info-dot">FL</div><div><strong>Flexible</strong><span>Choose sessions around your availability.</span></div></div><div class="info-item"><div class="info-dot">WK</div><div><strong>Weekend</strong><span>Short focused community activities.</span></div></div></div></div>
+</div>
+</section>
+<!-- APPLICATIONS -->
+<section class="page" id="applications">
+<div class="section-heading"><h2>My Applications</h2><p>Track every opportunity you've applied for.</p></div>
+<div class="panel table-wrap">
+<table>
+<thead><tr><th>Opportunity</th><th>Category</th><th>Date Applied</th><th>Schedule</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Neighborhood Cleanup</td><td>Community</td><td>Sep 03, 2026</td><td>Sep 14 · 4h</td><td class="status confirmed">Confirmed</td></tr>
+<tr><td>Reading Buddy Program</td><td>Education</td><td>Sep 02, 2026</td><td>Sep 16 · 3h</td><td class="status pending">Pending</td></tr>
+<tr><td>Digital Skills Mentor</td><td>Skills</td><td>Aug 29, 2026</td><td>Sep 20 · 3h</td><td class="status confirmed">Confirmed</td></tr>
+<tr><td>Community Kitchen</td><td>Community</td><td>Aug 26, 2026</td><td>Sep 22 · 4h</td><td class="status pending">Pending</td></tr>
+<tr><td>Park Restoration</td><td>Environment</td><td>Aug 20, 2026</td><td>Sep 27 · 5h</td><td class="status rejected">Closed</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="extra-grid">
+<div class="info-card"><h3>Application Journey</h3><p>Follow what happens after you submit an application.</p><div class="info-list"><div class="info-item"><div class="info-dot">01</div><div><strong>Submitted</strong><span>Your application is sent to the organizer.</span></div></div><div class="info-item"><div class="info-dot">02</div><div><strong>Review</strong><span>The organizer checks your profile and availability.</span></div></div></div></div>
+<div class="info-card"><h3>Response Center</h3><div class="mini-metrics"><div class="mini-metric"><strong>3</strong><span>Awaiting</span></div><div class="mini-metric"><strong>2</strong><span>Confirmed</span></div><div class="mini-metric"><strong>1</strong><span>Closed</span></div></div><p style="margin-top:14px">Keep an eye on organizer messages for next steps.</p></div>
+<div class="info-card"><h3>Before You Apply Again</h3><div class="info-list"><div class="info-item"><div class="info-dot">CV</div><div><strong>Review your profile</strong><span>Make sure your skills and interests are current.</span></div></div><div class="info-item"><div class="info-dot">TM</div><div><strong>Check timing</strong><span>Confirm that the commitment fits your schedule.</span></div></div></div></div>
+</div>
+<div class="extra-grid two">
+<div class="panel"><div class="panel-head"><div><div class="panel-title">Application History</div><div class="panel-sub">Recent application activity</div></div></div><div class="timeline"><div class="timeline-row"><div class="timeline-time">SEP 03</div><div><strong>Neighborhood Cleanup</strong><p>Application confirmed by Community Outreach.</p></div></div><div class="timeline-row"><div class="timeline-time">SEP 02</div><div><strong>Reading Buddy</strong><p>Application is still under review.</p></div></div><div class="timeline-row"><div class="timeline-time">AUG 29</div><div><strong>Digital Skills Mentor</strong><p>Confirmed for the September session.</p></div></div></div></div>
+<div class="panel"><div class="panel-head"><div><div class="panel-title">Organizer Notes</div><div class="panel-sub">Things to remember</div></div></div><div class="info-list"><div class="info-item"><div class="info-dot">01</div><div><strong>Bring identification</strong><span>Some venues require volunteer verification.</span></div></div><div class="info-item"><div class="info-dot">02</div><div><strong>Reply promptly</strong><span>Respond when an organizer requests confirmation.</span></div></div></div></div>
+</div>
+</section>
+<!-- SCHEDULE -->
+<section class="page" id="schedule">
+<div class="section-heading"><h2>My Schedule</h2><p>Your confirmed and scheduled volunteer commitments.</p></div>
+<div class="two-col">
+<div class="panel">
+<div class="panel-head"><div><div class="panel-title">September 2026</div><div class="panel-sub">6 upcoming commitments</div></div></div>
+<div class="list">
+<div class="list-row"><div class="date-box">14</div><div class="row-main"><div class="row-title">Neighborhood Cleanup</div><div class="row-meta">09:00 AM · Central Park · 4 hours</div></div><span class="badge">Confirmed</span></div>
+<div class="list-row"><div class="date-box">18</div><div class="row-main"><div class="row-title">Community Food Distribution</div><div class="row-meta">08:30 AM · East Hall · 5 hours</div></div><span class="badge">Confirmed</span></div>
+<div class="list-row"><div class="date-box">21</div><div class="row-main"><div class="row-title">Senior Support Day</div><div class="row-meta">10:00 AM · West Center · 3 hours</div></div><span class="badge">Scheduled</span></div>
+<div class="list-row"><div class="date-box">25</div><div class="row-main"><div class="row-title">Digital Skills Workshop</div><div class="row-meta">02:00 PM · Innovation Hub · 3 hours</div></div><span class="badge">Scheduled</span></div>
+</div>
+</div>
+<div class="panel">
+<div class="panel-head"><div class="panel-title">Availability</div></div>
+<div class="op-meta" style="border-top:0;padding-top:0">Preferred days</div>
+<p style="font-size:12px;font-weight:800">Saturday · Sunday · Wednesday</p>
+<div class="op-meta">Preferred time</div>
+<p style="font-size:12px;font-weight:800">Morning · 8:00 AM – 12:00 PM</p>
+<div class="op-meta">Monthly goal</div>
+<p style="font-size:12px;font-weight:800">30 volunteer hours</p>
+<div class="progress-wrap"><div class="progress-line"><span style="width:82%"></span></div></div>
+<p style="font-size:10px;color:#777;margin-top:7px">24.5 of 30 hours completed</p>
+</div>
+</div>
+
+<div class="extra-grid">
+<div class="info-card"><h3>Next Shift Brief</h3><p>Your nearest confirmed commitment is the Neighborhood Cleanup.</p><div class="info-list"><div class="info-item"><div class="info-dot">14</div><div><strong>09:00 AM start</strong><span>Arrive early for team check-in.</span></div></div><div class="info-item"><div class="info-dot">4H</div><div><strong>Four-hour session</strong><span>Plan your travel and break time.</span></div></div></div></div>
+<div class="info-card"><h3>Travel Planner</h3><div class="mini-metrics"><div class="mini-metric"><strong>4</strong><span>Locations</span></div><div class="mini-metric"><strong>2</strong><span>Early starts</span></div><div class="mini-metric"><strong>1</strong><span>Workshop</span></div></div><p style="margin-top:14px">Review each venue before the day of service.</p></div>
+<div class="info-card"><h3>Schedule Preferences</h3><div class="info-list"><div class="info-item"><div class="info-dot">D</div><div><strong>Preferred days</strong><span>Wednesday, Saturday and Sunday.</span></div></div><div class="info-item"><div class="info-dot">T</div><div><strong>Preferred time</strong><span>Morning sessions work best.</span></div></div></div></div>
+</div>
+<div class="extra-grid two">
+<div class="panel"><div class="panel-head"><div><div class="panel-title">Shift Preparation</div><div class="panel-sub">Simple checklist for your next commitment</div></div></div><div class="timeline"><div class="timeline-row"><div class="timeline-time">48H</div><div><strong>Check organizer updates</strong><p>Look for any venue or timing changes.</p></div></div><div class="timeline-row"><div class="timeline-time">24H</div><div><strong>Confirm travel</strong><p>Plan your route and arrival buffer.</p></div></div><div class="timeline-row"><div class="timeline-time">DAY</div><div><strong>Complete check-in</strong><p>Arrive prepared and ready to help.</p></div></div></div></div>
+<div class="panel"><div class="panel-head"><div><div class="panel-title">Schedule Categories</div><div class="panel-sub">Your upcoming service mix</div></div></div><div class="info-list"><div class="info-item"><div class="info-dot">CM</div><div><strong>Community</strong><span>Cleanup and food distribution.</span></div></div><div class="info-item"><div class="info-dot">ED</div><div><strong>Education</strong><span>Digital and learner-support sessions.</span></div></div><div class="info-item"><div class="info-dot">SS</div><div><strong>Support</strong><span>Senior and neighborhood assistance.</span></div></div></div></div>
+</div>
+</section>
+<!-- IMPACT -->
+<section class="page" id="impact">
+<div class="section-heading"><h2>Hours &amp; Impact</h2><p>See how your volunteer time is creating measurable change.</p></div>
+<div class="stats">
+<div class="stat"><div class="stat-icon">◷</div><div class="stat-label">Total Hours</div><div class="stat-number">186</div><div class="stat-note">Since joining</div></div>
+<div class="stat"><div class="stat-icon">♥</div><div class="stat-label">People Helped</div><div class="stat-number">742</div><div class="stat-note">Direct impact</div></div>
+<div class="stat"><div class="stat-icon">◎</div><div class="stat-label">Initiatives</div><div class="stat-number">12</div><div class="stat-note">Across 5 causes</div></div>
+<div class="stat"><div class="stat-icon">★</div><div class="stat-label">Volunteer Rank</div><div class="stat-number">#18</div><div class="stat-note">In your organization</div></div>
+</div>
+<div class="two-col">
+<div class="panel">
+<div class="panel-head"><div><div class="panel-title">Impact by Cause</div><div class="panel-sub">Your contribution distribution</div></div></div>
+<p style="font-size:11px;font-weight:800">Education <span style="float:right">42%</span></p>
+<div class="progress-wrap"><div class="progress-line"><span style="width:42%"></span></div></div>
+<p style="font-size:11px;font-weight:800;margin-top:20px">Community <span style="float:right">28%</span></p>
+<div class="progress-wrap"><div class="progress-line"><span style="width:28%"></span></div></div>
+<p style="font-size:11px;font-weight:800;margin-top:20px">Environment <span style="float:right">18%</span></p>
+<div class="progress-wrap"><div class="progress-line"><span style="width:18%"></span></div></div>
+<p style="font-size:11px;font-weight:800;margin-top:20px">Skills <span style="float:right">12%</span></p>
+<div class="progress-wrap"><div class="progress-line"><span style="width:12%"></span></div></div>
+</div>
+<div class="panel">
+<div class="panel-head"><div><div class="panel-title">Milestones</div><div class="panel-sub">Keep making a difference</div></div></div>
+<div class="list">
+<div class="list-row"><div class="round-box">50</div><div class="row-main"><div class="row-title">50 Hour Milestone</div><div class="row-meta">Completed in Jan 2026</div></div><span class="badge">Done</span></div>
+<div class="list-row"><div class="round-box">100</div><div class="row-main"><div class="row-title">100 Hour Milestone</div><div class="row-meta">Completed in Apr 2026</div></div><span class="badge">Done</span></div>
+<div class="list-row"><div class="round-box">200</div><div class="row-main"><div class="row-title">200 Hour Milestone</div><div class="row-meta">14 hours remaining</div></div><span class="badge">82%</span></div>
+</div>
+</div>
+</div>
+
+<div class="extra-grid">
+<div class="info-card"><h3>Contribution Quality</h3><p>Your impact is not only measured by hours; consistency and completed commitments matter too.</p><div class="mini-metrics"><div class="mini-metric"><strong>94%</strong><span>Attendance</span></div><div class="mini-metric"><strong>4.8</strong><span>Feedback</span></div><div class="mini-metric"><strong>12</strong><span>Initiatives</span></div></div></div>
+<div class="info-card"><h3>Community Outcomes</h3><div class="info-list"><div class="info-item"><div class="info-dot">742</div><div><strong>People reached</strong><span>Direct and supported community participation.</span></div></div><div class="info-item"><div class="info-dot">12</div><div><strong>Initiatives</strong><span>Contributions across multiple causes.</span></div></div></div></div>
+<div class="info-card"><h3>Personal Growth</h3><div class="info-list"><div class="info-item"><div class="info-dot">SK</div><div><strong>Digital skills</strong><span>Practical mentoring and technology experience.</span></div></div><div class="info-item"><div class="info-dot">TM</div><div><strong>Teamwork</strong><span>Collaboration with community organizers.</span></div></div></div></div>
+</div>
+<div class="extra-grid two">
+<div class="panel"><div class="panel-head"><div><div class="panel-title">Service Journey</div><div class="panel-sub">Your progress through volunteer milestones</div></div></div><div class="timeline"><div class="timeline-row"><div class="timeline-time">50H</div><div><strong>Foundation milestone</strong><p>Completed your first major service milestone.</p></div></div><div class="timeline-row"><div class="timeline-time">100H</div><div><strong>Consistency milestone</strong><p>Reached 100 hours through regular participation.</p></div></div><div class="timeline-row"><div class="timeline-time">200H</div><div><strong>Next target</strong><p>Only 14 hours remain to reach 200 hours.</p></div></div></div></div>
+<div class="panel"><div class="panel-head"><div><div class="panel-title">Recognition</div><div class="panel-sub">Highlights from your contribution</div></div></div><div class="info-list"><div class="info-item"><div class="info-dot">18</div><div><strong>Current volunteer rank</strong><span>Ranked #18 in your organization.</span></div></div><div class="info-item"><div class="info-dot">★</div><div><strong>Reliable contributor</strong><span>Strong attendance across scheduled sessions.</span></div></div></div></div>
+</div>
+</section>
+<!-- MESSAGES -->
+<section class="page" id="messages">
+<div class="section-heading"><h2>Messages</h2><p>Updates and communication from organizers.</p></div>
+<div class="panel">
+<div class="message"><div class="round-box">CO</div><div><h4>Community Outreach Team</h4><p>Your application for Neighborhood Cleanup has been approved. See you on September 14 at 9:00 AM.</p><small style="font-size:9px;color:#999">Today · 10:42 AM</small></div></div>
+<div class="message"><div class="round-box">ED</div><div><h4>Education Programs</h4><p>Thanks for applying to Reading Buddy. We'll review your application shortly.</p><small style="font-size:9px;color:#999">Yesterday · 3:15 PM</small></div></div>
+<div class="message"><div class="round-box">SK</div><div><h4>Skills For All</h4><p>We've added a new Digital Skills Workshop near your preferred location.</p><small style="font-size:9px;color:#999">Sep 08 · 11:20 AM</small></div></div>
+<div class="message"><div class="round-box">ST</div><div><h4>Stackly Volunteer Team</h4><p>Your monthly volunteer impact report is ready to review.</p><small style="font-size:9px;color:#999">Sep 05 · 9:00 AM</small></div></div>
+</div>
+
+<div class="extra-grid">
+<div class="info-card"><h3>Inbox Tools</h3><p>Keep organizer conversations easy to review and act on.</p><div class="info-list"><div class="info-item"><div class="info-dot">01</div><div><strong>Unread first</strong><span>Review new requests before older updates.</span></div></div><div class="info-item"><div class="info-dot">02</div><div><strong>Confirm changes</strong><span>Reply when a shift or application needs action.</span></div></div></div></div>
+<div class="info-card"><h3>Communication Guide</h3><div class="mini-metrics"><div class="mini-metric"><strong>4</strong><span>Channels</span></div><div class="mini-metric"><strong>2</strong><span>Action items</span></div><div class="mini-metric"><strong>1</strong><span>Report</span></div></div><p style="margin-top:14px">Use messages to keep your commitments clear.</p></div>
+<div class="info-card"><h3>Organizer Channels</h3><div class="info-list"><div class="info-item"><div class="info-dot">CO</div><div><strong>Community Outreach</strong><span>Shift confirmations and event details.</span></div></div><div class="info-item"><div class="info-dot">ED</div><div><strong>Education Programs</strong><span>Application and learner updates.</span></div></div></div></div>
+</div>
+<div class="extra-grid two">
+<div class="panel"><div class="panel-head"><div><div class="panel-title">Conversation Topics</div><div class="panel-sub">What your messages currently cover</div></div></div><div class="timeline"><div class="timeline-row"><div class="timeline-time">TODAY</div><div><strong>Shift confirmation</strong><p>Neighborhood Cleanup has been approved.</p></div></div><div class="timeline-row"><div class="timeline-time">YDAY</div><div><strong>Application review</strong><p>Reading Buddy remains under review.</p></div></div><div class="timeline-row"><div class="timeline-time">SEP 08</div><div><strong>New opportunity</strong><p>A Digital Skills Workshop was announced.</p></div></div></div></div>
+<div class="panel"><div class="panel-head"><div><div class="panel-title">Notification Preferences</div><div class="panel-sub">Choose what should reach your inbox</div></div></div><div class="info-list"><div class="info-item"><div class="info-dot">AP</div><div><strong>Application updates</strong><span>Receive status changes from organizers.</span></div></div><div class="info-item"><div class="info-dot">SH</div><div><strong>Schedule changes</strong><span>Stay informed about confirmed commitments.</span></div></div><div class="info-item"><div class="info-dot">IM</div><div><strong>Impact reports</strong><span>Get updates about your volunteer contribution.</span></div></div></div></div>
+</div>
+</section>
+<!-- PROFILE -->
+<section class="page" id="profile">
+<div class="section-heading"><h2>My Profile</h2><p>Manage your volunteer information and preferences.</p></div>
+<div class="profile-grid">
+<div class="panel profile-card">
+<div class="big-avatar" id="bigAvatar">IF</div>
+<h3 id="profileName">Volunteer</h3>
+<p id="profileEmail">volunteer@email.com</p>
+<div style="margin-top:20px;padding-top:18px;border-top:1px solid var(--border);text-align:left">
+<p style="margin-bottom:8px"><strong>Member since:</strong> January 2026</p>
+<p><strong>Volunteer ID:</strong> STK-VOL-01842</p>
+</div>
+</div>
+<div class="panel">
+<div class="panel-head"><div class="panel-title">Personal Information</div></div>
+<div class="form-grid">
+<div class="field"><label>Full Name</label><input id="nameInput" type="text" value=""/></div>
+<div class="field"><label>Email Address</label><input id="emailInput" readonly="" type="email"/></div>
+<div class="field"><label>Phone</label><input type="tel" value="+91 98765 43210"/></div>
+<div class="field"><label>Location</label><input type="text" value="Chennai, India"/></div>
+<div class="field full"><label>About You</label><input type="text" value="Volunteer interested in education, community and digital skills."/></div>
+<div class="field full"><button class="primary" onclick="saveProfile()">Save Changes</button></div>
+</div>
+</div>
+</div>
+
+<div class="extra-grid">
+<div class="info-card"><h3>About Your Profile</h3><p>A complete profile helps organizers understand where you can contribute best.</p><div class="info-list"><div class="info-item"><div class="info-dot">ID</div><div><strong>Identity</strong><span>Your basic account details are connected to your login.</span></div></div><div class="info-item"><div class="info-dot">BIO</div><div><strong>About you</strong><span>Keep your volunteer interests clear and current.</span></div></div></div></div>
+<div class="info-card"><h3>Skills &amp; Interests</h3><div class="mini-metrics"><div class="mini-metric"><strong>3</strong><span>Core interests</span></div><div class="mini-metric"><strong>2</strong><span>Skill areas</span></div><div class="mini-metric"><strong>5</strong><span>Causes</span></div></div><p style="margin-top:14px">Education, community and digital skills are currently highlighted.</p></div>
+<div class="info-card"><h3>Profile Checklist</h3><div class="info-list"><div class="info-item"><div class="info-dot">✓</div><div><strong>Basic details</strong><span>Name and email are available.</span></div></div><div class="info-item"><div class="info-dot">✓</div><div><strong>Preferences</strong><span>Availability can guide opportunity matches.</span></div></div></div></div>
+</div>
+<div class="extra-grid two">
+<div class="panel"><div class="panel-head"><div><div class="panel-title">Volunteer Preferences</div><div class="panel-sub">Your current working preferences</div></div></div><div class="timeline"><div class="timeline-row"><div class="timeline-time">DAYS</div><div><strong>Wednesday · Saturday · Sunday</strong><p>These are your preferred volunteering days.</p></div></div><div class="timeline-row"><div class="timeline-time">TIME</div><div><strong>Morning sessions</strong><p>Preferred window is 8:00 AM to 12:00 PM.</p></div></div><div class="timeline-row"><div class="timeline-time">GOAL</div><div><strong>30 hours per month</strong><p>Your current monthly target.</p></div></div></div></div>
+<div class="panel"><div class="panel-head"><div><div class="panel-title">Account Information</div><div class="panel-sub">Profile and account reference</div></div></div><div class="info-list"><div class="info-item"><div class="info-dot">MEM</div><div><strong>Member since</strong><span>January 2026</span></div></div><div class="info-item"><div class="info-dot">VOL</div><div><strong>Volunteer ID</strong><span>STK-VOL-01842</span></div></div><div class="info-item"><div class="info-dot">ACC</div><div><strong>Account status</strong><span>Active volunteer account.</span></div></div></div></div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<script>
+const pages = {
+  dashboard:"My Dashboard",
+  opportunities:"Opportunities",
+  applications:"My Applications",
+  schedule:"My Schedule",
+  impact:"Hours & Impact",
+  messages:"Messages",
+  profile:"My Profile"
+};
+
+const navButtons = document.querySelectorAll(".nav-btn");
+const pageTitle = document.getElementById("pageTitle");
+
+function showPage(id){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  const target=document.getElementById(id);
+  if(target) target.classList.add("active");
+
+  navButtons.forEach(btn=>{
+    btn.classList.toggle("active", btn.dataset.page===id);
+  });
+
+  pageTitle.textContent=pages[id] || "My Dashboard";
+  document.getElementById("main").scrollTo({top:0,behavior:"smooth"});
+  closeMenu();
+}
+
+navButtons.forEach(btn=>{
+  btn.addEventListener("click",()=>showPage(btn.dataset.page));
+});
+
+const sidebar=document.getElementById("sidebar");
+const overlay=document.getElementById("overlay");
+const menuBtn=document.getElementById("menuBtn");
+
+function openMenu(){
+  sidebar.classList.add("open");
+  overlay.classList.add("show");
+}
+function closeMenu(){
+  sidebar.classList.remove("open");
+  overlay.classList.remove("show");
+}
+menuBtn.addEventListener("click",()=>{
+  sidebar.classList.contains("open") ? closeMenu() : openMenu();
+});
+overlay.addEventListener("click",closeMenu);
+
+window.addEventListener("resize",()=>{
+  if(window.innerWidth>800) closeMenu();
+});
+
+/* LOGIN DATA */
+const storedEmail =
+  localStorage.getItem("stacklyEmail") ||
+  localStorage.getItem("email") ||
+  "volunteer@email.com";
+
+const storedName = localStorage.getItem("stacklyName") || "";
+
+function makeName(email){
+  const part=(email.split("@")[0]||"Volunteer").replace(/[._-]+/g," ");
+  return part
+    .split(" ")
+    .filter(Boolean)
+    .map(word=>word.charAt(0).toUpperCase()+word.slice(1))
+    .join(" ") || "Volunteer";
+}
+
+let volunteerName = storedName || makeName(storedEmail);
+let initials = volunteerName
+  .split(/\s+/)
+  .filter(Boolean)
+  .slice(0,2)
+  .map(x=>x[0])
+  .join("")
+  .toUpperCase() || "VO";
+
+function updateUserUI(){
+  document.getElementById("welcomeName").textContent=volunteerName;
+  document.getElementById("topName").textContent=volunteerName;
+  document.getElementById("topEmail").textContent=storedEmail;
+  document.getElementById("sideName").textContent=volunteerName;
+  document.getElementById("sideEmail").textContent=storedEmail;
+  document.getElementById("profileName").textContent=volunteerName;
+  document.getElementById("profileEmail").textContent=storedEmail;
+  document.getElementById("emailInput").value=storedEmail;
+  document.getElementById("nameInput").value=volunteerName;
+
+  ["topAvatar","sideAvatar","bigAvatar"].forEach(id=>{
+    document.getElementById(id).textContent=initials;
+  });
+}
+updateUserUI();
+
+/* OPPORTUNITY SEARCH */
+const opSearch=document.getElementById("opSearch");
+const opFilter=document.getElementById("opFilter");
+
+function filterOpportunities(){
+  const query=opSearch.value.toLowerCase().trim();
+  const category=opFilter.value;
+  document.querySelectorAll(".op-card").forEach(card=>{
+    const matchesText=card.dataset.search.includes(query);
+    const matchesCategory=category==="all" || card.dataset.category===category;
+    card.style.display=matchesText && matchesCategory ? "" : "none";
+  });
+}
+opSearch.addEventListener("input",filterOpportunities);
+opFilter.addEventListener("change",filterOpportunities);
+
+/* PROFILE */
+function saveProfile(){
+  const value=document.getElementById("nameInput").value.trim();
+  if(value){
+    volunteerName=value;
+    localStorage.setItem("stacklyName",value);
+    initials=volunteerName.split(/\s+/).slice(0,2).map(x=>x[0]).join("").toUpperCase();
+    updateUserUI();
+  }
+  alert("Profile updated successfully.");
+}
+
+/* SIGN OUT */
+document.getElementById("signOut").addEventListener("click",()=>{
+  localStorage.removeItem("stacklyEmail");
+  localStorage.removeItem("stacklyPortal");
+  localStorage.removeItem("stacklyName");
+  window.location.href="login.html";
+});
+</script>
+</body>
+</html>

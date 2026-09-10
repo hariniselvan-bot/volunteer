@@ -1,0 +1,41 @@
+/* Shared presentation for the volunteer and organization dashboards. */
+:root { color-scheme: light; }
+body { background: #f6f8f3 !important; color: #122019 !important; overflow: auto !important; }
+.app { min-height: 100vh; height: auto !important; }
+.sidebar { background: #ffffff !important; border-right-color: rgba(16, 43, 34, .12) !important; box-shadow: 8px 0 28px rgba(16, 43, 34, .04); }
+.brand { border-bottom: 1px solid rgba(16, 43, 34, .1); }
+.brand strong, .nav button { color: #173d2f !important; }
+.brand small, .mail { color: #69746e !important; }
+.logo, .avatar, .big-avatar { background: #102b22 !important; color: #c9f45a !important; }
+.nav button.active { background: #eaf7bf !important; color: #102b22 !important; }
+.nav button:not(.active):hover { background: #f2f6e8 !important; }
+.side-bottom, .user-mini { border-color: rgba(16, 43, 34, .12) !important; background: #fbfcf9 !important; color: #122019 !important; }
+.topbar { background: #ffffff !important; color: #122019 !important; border-bottom-color: rgba(16, 43, 34, .12) !important; box-shadow: 0 2px 12px rgba(16, 43, 34, .03); }
+.topbar .crumb p, .sub, .item p, .field label, .section-title span { color: #69746e !important; }
+.search, .top-user { background: #ffffff !important; color: #122019 !important; border-color: rgba(16, 43, 34, .14) !important; }
+.content { background: #f6f8f3 !important; color: #122019 !important; }
+.card, .notice, .table-wrap { background: #ffffff !important; border-color: rgba(16, 43, 34, .12) !important; color: #122019 !important; box-shadow: 0 8px 20px rgba(16, 43, 34, .035); }
+.card h3, .section-title h3, .item strong, .field b, .head h2 { color: #122019 !important; }
+.table th, .table td, .item, .field { border-color: rgba(16, 43, 34, .1) !important; }
+.table th { background: #f8faf5 !important; color: #69746e !important; }
+.bar { background: #e8eee4 !important; }.bar i, .barcol i { background: #7db33a !important; }.pill { background: #edf6d7 !important; color: #315d22 !important; }
+.dashboard-header-logo { display: flex; align-items: center; gap: 9px; margin-right: 10px; font-weight: 800; color: #102b22; white-space: nowrap; }
+.dashboard-header-logo img { width: 34px; height: 34px; object-fit: contain; }.dashboard-header-logo small { display: block; color: #69746e; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 30;
+  height: 100dvh;
+  overflow: hidden;
+}
+.sidebar .brand { padding: 20px 24px; }
+.sidebar-logo { display: block; width: min(100%, 200px); height: auto; }
+.sidebar .nav { overflow-y: auto; }
+.main { margin-left: 270px; min-height: 100dvh; }
+@media (max-width: 760px) {
+  .sidebar { background: #fff !important; left: -285px; transition: left .2s; }
+  .sidebar.open { left: 0; }
+  .main { margin-left: 0; }
+  .dashboard-header-logo small { display: none; }
+  .dashboard-header-logo { margin-right: 0; }
+}

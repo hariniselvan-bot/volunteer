@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 56" role="img" aria-label="Stackly Volunteer Organization">
+  <rect width="48" height="48" y="4" rx="14" fill="#102B22"/>
+  <path d="M30.5 17.8c-5.2 0-9 3.1-9 7.4 0 6.3 10.6 5.2 10.6 10.7 0 4-3.4 6.9-8.1 6.9-3.8 0-7-1.9-8.6-4.7" fill="none" stroke="#C9F45A" stroke-width="3.6" stroke-linecap="round"/>
+  <circle cx="31" cy="16.8" r="2.8" fill="#C9F45A"/>
+  <text x="58" y="30" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="800" fill="#102B22">Stackly</text>
+  <text x="58" y="45" font-family="Manrope, Arial, sans-serif" font-size="8.5" font-weight="700" letter-spacing="2.6" fill="#69746E">VOLUNTEER ORGANIZATION</text>
+</svg>

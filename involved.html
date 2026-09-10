@@ -1,0 +1,3202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Get Involved | Stackly — People, Purpose, Progress</title>
+
+  <meta name="description"
+    content="Get involved with Stackly. Volunteer your time, donate, partner with us, or join an upcoming community event.">
+
+  <link rel="icon"
+    href="assets/svg/stackly-symbol-lime.svg"
+    type="image/svg+xml">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <style>
+    /* HERO VISUAL */
+
+    .gi-visual {
+      position: relative;
+      min-height: 480px;
+    }
+
+
+    .gi-main-image {
+      position: absolute;
+      width: 82%;
+      height: 440px;
+      right: 0;
+      top: 20px;
+      overflow: hidden;
+      border-radius: 32px;
+      transform: rotate(2deg);
+      box-shadow: 0 35px 80px rgba(0,0,0,.25);
+    }
+
+
+    .gi-main-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    .gi-floating-card {
+      position: absolute;
+      left: 0;
+      bottom: 35px;
+      width: 245px;
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.94);
+      color: var(--green);
+      box-shadow: 0 25px 70px rgba(0,0,0,.22);
+      z-index: 4;
+    }
+
+
+    .gi-floating-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--lime);
+      margin-bottom: 14px;
+    }
+
+
+    .gi-floating-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+
+    .gi-floating-card strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+
+    .gi-floating-card span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       SECTION COMMON
+    ========================================================= */
+
+    .gi-section {
+      padding: 120px 0;
+    }
+
+
+    .gi-container {
+      width: min(1200px, 92%);
+      margin: auto;
+    }
+
+
+    .gi-section-head {
+      max-width: 720px;
+      margin-bottom: 65px;
+    }
+
+
+    .gi-section-head.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+
+    .gi-label {
+      display: inline-block;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      margin-bottom: 18px;
+    }
+
+
+    .gi-label.light {
+      color: var(--lime);
+    }
+
+
+    .gi-title {
+      margin: 0;
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.02;
+      letter-spacing: -.045em;
+      color: var(--green);
+    }
+
+
+    .gi-title.light {
+      color: var(--white);
+    }
+
+
+    .gi-title em {
+      color: var(--green);
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+    }
+
+
+    .gi-title .lime {
+      color: var(--lime);
+    }
+
+
+    .gi-subtitle {
+      margin: 20px auto 0;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+
+    /* =========================================================
+       INVOLVEMENT CARDS
+    ========================================================= */
+
+    .gi-options {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+
+    .gi-option {
+      position: relative;
+      min-height: 360px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      background: var(--white);
+      overflow: hidden;
+      transition:
+        transform .45s cubic-bezier(.2,.8,.2,1),
+        box-shadow .45s ease,
+        border-color .45s ease;
+    }
+
+
+    .gi-option:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 60px rgba(16,43,34,.13);
+      border-color: rgba(16,43,34,.2);
+    }
+
+
+    .gi-option-number {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+
+    .gi-option-icon {
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: var(--green);
+      color: var(--lime);
+      margin-top: 30px;
+      transition: transform .4s ease;
+    }
+
+
+    .gi-option:hover .gi-option-icon {
+      transform: rotate(-8deg) scale(1.05);
+    }
+
+
+    .gi-option-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+
+    .gi-option h3 {
+      margin: 25px 0 10px;
+      font-size: 22px;
+      color: var(--green);
+    }
+
+
+    .gi-option p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+
+    .gi-option-link {
+      margin-top: 25px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+
+    .gi-option-link svg {
+      width: 18px;
+      transition: transform .3s ease;
+    }
+
+
+    .gi-option:hover .gi-option-link svg {
+      transform: translate(4px,-4px);
+    }
+
+
+    /* =========================================================
+       VOLUNTEER SECTION
+    ========================================================= */
+
+    .gi-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+
+    .gi-image-wrap {
+      position: relative;
+    }
+
+
+    .gi-image-wrap::before {
+      content: "";
+      position: absolute;
+      width: 85%;
+      height: 85%;
+      left: -25px;
+      bottom: -25px;
+      border-radius: 30px;
+      background: var(--lime);
+      z-index: 0;
+    }
+
+
+    .gi-image {
+      position: relative;
+      z-index: 1;
+      height: 600px;
+      overflow: hidden;
+      border-radius: 30px;
+    }
+
+
+    .gi-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    .gi-copy h2 {
+      margin-bottom: 25px;
+    }
+
+
+    .gi-copy p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+
+    .gi-check-list {
+      margin: 30px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+
+    .gi-check-list li {
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+
+    .gi-check {
+      flex: 0 0 25px;
+      width: 25px;
+      height: 25px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--lime);
+    }
+
+
+    .gi-check svg {
+      width: 14px;
+    }
+
+
+    /* =========================================================
+       DONATE
+    ========================================================= */
+
+    .gi-dark {
+      background: var(--green);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+
+    .gi-dark::before {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      right: -250px;
+      top: -250px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,244,90,.15);
+      box-shadow:
+        0 0 0 80px rgba(201,244,90,.025),
+        0 0 0 160px rgba(201,244,90,.018);
+    }
+
+
+    .gi-donate-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+
+    .gi-donate-copy p {
+      color: rgba(255,255,255,.68);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+
+    .gi-donation-card {
+      padding: 45px;
+      border-radius: 30px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(15px);
+    }
+
+
+    .gi-donation-card h3 {
+      font-size: 28px;
+      margin: 0 0 12px;
+    }
+
+
+    .gi-donation-card p {
+      margin-bottom: 30px;
+    }
+
+
+    .gi-amounts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+
+    .gi-amount {
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: transparent;
+      color: var(--white);
+      font: inherit;
+      cursor: pointer;
+      transition: .3s ease;
+    }
+
+
+    .gi-amount:hover,
+    .gi-amount.active {
+      background: var(--lime);
+      color: var(--green);
+      border-color: var(--lime);
+    }
+
+
+    /* =========================================================
+       PARTNER
+    ========================================================= */
+
+    .gi-partners {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+
+    .gi-partner-card {
+      padding: 35px;
+      min-height: 250px;
+      border-radius: 24px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      transition: .4s ease;
+    }
+
+
+    .gi-partner-card:hover {
+      transform: translateY(-8px);
+      background: var(--white);
+      box-shadow: 0 20px 50px rgba(16,43,34,.08);
+    }
+
+
+    .gi-partner-card span {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+
+    .gi-partner-card h3 {
+      font-size: 24px;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+
+    .gi-partner-card p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+
+    /* =========================================================
+       EVENTS
+    ========================================================= */
+
+    .gi-events {
+      display: grid;
+      gap: 16px;
+    }
+
+
+    .gi-event {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      gap: 30px;
+      align-items: center;
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--white);
+      transition: .4s ease;
+    }
+
+
+    .gi-event:hover {
+      transform: translateX(8px);
+      box-shadow: 0 15px 40px rgba(16,43,34,.08);
+    }
+
+
+    .gi-event-date {
+      text-align: center;
+      padding: 14px;
+      border-radius: 15px;
+      background: var(--green);
+      color: var(--white);
+    }
+
+
+    .gi-event-date strong {
+      display: block;
+      color: var(--lime);
+      font-size: 28px;
+    }
+
+
+    .gi-event-date small {
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: .12em;
+    }
+
+
+    .gi-event h3 {
+      margin: 0 0 7px;
+      color: var(--green);
+      font-size: 20px;
+    }
+
+
+    .gi-event p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+
+    /* =========================================================
+       JOURNEY
+    ========================================================= */
+
+    .gi-journey {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      position: relative;
+    }
+
+
+    .gi-journey::before {
+      content: "";
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      top: 37px;
+      height: 1px;
+      background: rgba(16,43,34,.18);
+    }
+
+
+    .gi-step {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+
+    .gi-step-number {
+      width: 74px;
+      height: 74px;
+      margin: 0 auto 25px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--lime);
+      color: var(--green);
+      font-size: 18px;
+      font-weight: 800;
+      border: 8px solid var(--white);
+      box-shadow: 0 0 0 1px rgba(16,43,34,.1);
+    }
+
+
+    .gi-step h3 {
+      margin-bottom: 10px;
+      color: var(--green);
+    }
+
+
+    .gi-step p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       FINAL CTA
+    ========================================================= */
+
+    .gi-final {
+      padding: 110px 0;
+      background: var(--lime);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+
+    .gi-final::before,
+    .gi-final::after {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 1px solid rgba(16,43,34,.15);
+    }
+
+
+    .gi-final::before {
+      left: -100px;
+      top: -100px;
+    }
+
+
+    .gi-final::after {
+      right: -100px;
+      bottom: -100px;
+    }
+
+
+    .gi-final-inner {
+      position: relative;
+      z-index: 2;
+      width: min(850px, 92%);
+      margin: auto;
+    }
+
+
+    .gi-final h2 {
+      margin: 0;
+      color: var(--green);
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1;
+      letter-spacing: -.05em;
+    }
+
+
+    .gi-final h2 em {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+    }
+
+
+    .gi-final p {
+      max-width: 600px;
+      margin: 25px auto 30px;
+      color: rgba(16,43,34,.72);
+      line-height: 1.8;
+    }
+
+
+    .gi-dark-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      padding: 16px 23px;
+      border-radius: 50px;
+      background: var(--green);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+
+    .gi-dark-btn svg {
+      width: 18px;
+      transition: transform .3s ease;
+    }
+
+
+    .gi-dark-btn:hover svg {
+      transform: translate(4px,-4px);
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .gi-options {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gi-hero-inner {
+        grid-template-columns: 1fr;
+        padding-top: 130px;
+      }
+
+      .gi-visual {
+        min-height: 430px;
+      }
+
+      .gi-split,
+      .gi-donate-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .gi-partners {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gi-journey {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 45px 20px;
+      }
+
+      .gi-journey::before {
+        display: none;
+      }
+
+    }
+
+
+    @media (max-width: 700px) {
+
+      html {
+        scroll-padding-top: 80px;
+      }
+
+      .gi-section {
+        padding: 80px 0;
+      }
+
+      .gi-hero {
+        min-height: auto;
+      }
+
+      .gi-hero-inner {
+        width: min(92%, 500px);
+        padding: 120px 0 70px;
+        gap: 40px;
+      }
+
+      .gi-hero-title {
+        font-size: clamp(44px, 13vw, 68px);
+      }
+
+      .gi-hero-text {
+        font-size: 15px;
+      }
+
+      .gi-hero-actions {
+        gap: 15px;
+      }
+
+      .gi-visual {
+        min-height: 390px;
+      }
+
+      .gi-main-image {
+        width: 88%;
+        height: 350px;
+      }
+
+      .gi-floating-card {
+        width: 210px;
+        padding: 18px;
+        bottom: 15px;
+      }
+
+      .gi-options,
+      .gi-partners {
+        grid-template-columns: 1fr;
+      }
+
+      .gi-option {
+        min-height: 300px;
+      }
+
+      .gi-image {
+        height: 430px;
+      }
+
+      .gi-image-wrap::before {
+        left: -12px;
+        bottom: -12px;
+      }
+
+      .gi-donation-card {
+        padding: 25px;
+      }
+
+      .gi-amounts {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gi-event {
+        grid-template-columns: 70px 1fr;
+        gap: 18px;
+      }
+
+      .gi-event .btn {
+        grid-column: 1 / -1;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .gi-journey {
+        grid-template-columns: 1fr;
+      }
+
+      .gi-final {
+        padding: 80px 0;
+      }
+
+    }
+
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =======================================================
+       PRELOADER
+  ======================================================== -->
+
+  <div class="preloader" id="preloader" aria-hidden="true">
+
+    <div class="pre-inner">
+
+      <div class="pre-logo"><img src="assets/img/impact/logo.webp" alt="Stackly logo"></div>
+
+      <div class="pre-word">
+        <strong>Stackly</strong>
+        <small>Volunteer Organization</small>
+      </div>
+
+      <div class="pre-bar">
+        <i></i>
+      </div>
+
+      <div class="pre-count">
+        0%
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =======================================================
+       PAGE TRANSITION
+  ======================================================== -->
+
+  <div
+    class="page-transition"
+    aria-hidden="true">
+
+    <svg
+      viewBox="0 0 48 48"
+      xmlns="http://www.w3.org/2000/svg">
+
+      <rect
+        width="48"
+        height="48"
+        rx="14"
+        fill="#C9F45A"/>
+
+      <path
+        d="M30.5 13.8c-5.2 0-9 3.1-9 7.4 0 6.3 10.6 5.2 10.6 10.7 0 4-3.4 6.9-8.1 6.9-3.8 0-7-1.9-8.6-4.7"
+        fill="none"
+        stroke="#102B22"
+        stroke-width="3.6"
+        stroke-linecap="round"/>
+
+      <circle
+        cx="31"
+        cy="12.8"
+        r="2.8"
+        fill="#102B22"/>
+
+    </svg>
+
+  </div>
+
+
+
+  <!-- =======================================================
+       SCROLL PROGRESS
+  ======================================================== -->
+
+  <div
+    class="scroll-progress"
+    aria-hidden="true">
+
+    <i></i>
+
+  </div>
+
+
+
+  <!-- =======================================================
+       HEADER
+  ======================================================== -->
+
+  <header class="site-header">
+
+    <div class="header-bar">
+
+
+      <!-- LOGO -->
+
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="Stackly — home">
+
+        <span class="brand-mark"><img src="assets/img/impact/logo.webp" alt="Stackly logo"></span>
+
+
+        <span class="brand-text">
+
+          <span class="brand-name"><img src="assets/img/impact/logo STAC.webp" alt="Stackly"></span>
+
+          <span class="brand-tag">
+            Volunteer Organization
+          </span>
+
+        </span>
+
+      </a>
+
+
+
+      <!-- DESKTOP NAV -->
+
+      <nav aria-label="Primary navigation">
+
+        <ul class="nav-main">
+
+
+          <li>
+            <a
+              class="nav-link"
+              href="index.html">
+              Home
+            </a>
+          </li>
+
+
+          <li>
+            <a
+              class="nav-link"
+              href="about.html">
+              About Us
+            </a>
+          </li>
+
+
+
+          <!-- PROGRAMS -->
+
+          <li class="has-dropdown">
+
+            <a
+              class="nav-link"
+              href="service.html"
+              aria-haspopup="true"
+              aria-expanded="false">
+
+              Programs
+
+              <svg
+                class="caret"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <path d="M6 9l6 6 6-6"/>
+
+              </svg>
+
+            </a>
+
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a href="service.html#community">
+                  Community Development
+                </a>
+              </li>
+
+              <li>
+                <a href="service.html#environment">
+                  Environmental Care
+                </a>
+              </li>
+
+              <li>
+                <a href="service.html#education">
+                  Education
+                </a>
+              </li>
+
+              <li>
+                <a href="service.html#healthcare">
+                  Healthcare
+                </a>
+              </li>
+
+              <li>
+                <a href="service.html#food">
+                  Food Support
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+
+
+          <!-- GET INVOLVED -->
+
+          <li class="has-dropdown">
+
+            <a
+              class="nav-link active"
+              href="involved.html"
+              aria-haspopup="true"
+              aria-expanded="false">
+
+              Get Involved
+
+              <svg
+                class="caret"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <path d="M6 9l6 6 6-6"/>
+
+              </svg>
+
+            </a>
+
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a href="involved.html#volunteer">
+                  Volunteer
+                </a>
+              </li>
+
+              <li>
+                <a href="involved.html#donate">
+                  Donate
+                </a>
+              </li>
+
+              <li>
+                <a href="involved.html#partner">
+                  Partner With Us
+                </a>
+              </li>
+
+              <li>
+                <a href="involved.html#events">
+                  Events
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+
+
+          <li>
+            <a
+              class="nav-link"
+              href="blog.html">
+              Stories
+            </a>
+          </li>
+
+
+          <li>
+            <a
+              class="nav-link"
+              href="contact.html">
+              Contact
+            </a>
+          </li>
+
+
+        </ul>
+
+      </nav>
+
+
+
+      <!-- HEADER RIGHT -->
+
+      <div class="header-right">
+
+
+        <a
+          class="header-call"
+          href="tel:+919845012345">
+
+          <span class="call-ico">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8">
+
+              <path
+                d="M5 4h4l1.5 4.5L8 10c1 2.5 3 4.5 5.5 5.5l1.5-2.5L19.5 14v4c0 1-1 2-2 1.8C10 19 5 14 4.2 6.5 4 5.5 4.5 4 5 4z"/>
+
+            </svg>
+
+          </span>
+
+
+          <span class="call-txt">
+
+            <small>
+              Call Us
+            </small>
+
+            <strong>
+              +91 98450 12345
+            </strong>
+
+          </span>
+
+        </a>
+
+
+
+        <a
+          class="btn btn-lime btn-sm"
+          href="#volunteer"
+          data-cursor="go">
+
+          Become a Volunteer
+
+          <span class="btn-circle">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2">
+
+              <path d="M7 17L17 7"/>
+              <path d="M8 7h9v9"/>
+
+            </svg>
+
+          </span>
+
+        </a>
+
+
+
+        <!-- MOBILE HAMBURGER -->
+
+        <button
+          class="hamburger"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu">
+
+          <span></span>
+
+        </button>
+
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =======================================================
+       MOBILE MENU
+  ======================================================== -->
+
+  <div
+    class="mobile-menu"
+    id="mobile-menu"
+    aria-label="Mobile navigation">
+
+    <nav>
+
+      <ul>
+
+
+        <li>
+          <a
+            class="m-link"
+            href="index.html">
+
+            Home
+
+            <span class="m-num">
+              01
+            </span>
+
+          </a>
+        </li>
+
+
+        <li>
+          <a
+            class="m-link"
+            href="about.html">
+
+            About Us
+
+            <span class="m-num">
+              02
+            </span>
+
+          </a>
+        </li>
+
+
+        <li>
+
+          <a
+            class="m-link"
+            href="service.html">
+
+            Programs
+
+            <span class="m-num">
+              03
+            </span>
+
+          </a>
+
+
+          <div class="m-sub">
+
+            <a href="service.html#community">
+              Community
+            </a>
+
+            <a href="service.html#environment">
+              Environment
+            </a>
+
+            <a href="service.html#education">
+              Education
+            </a>
+
+            <a href="service.html#healthcare">
+              Healthcare
+            </a>
+
+            <a href="service.html#food">
+              Food Support
+            </a>
+
+          </div>
+
+        </li>
+
+
+        <!-- GET INVOLVED MOBILE -->
+
+        <li>
+
+          <a
+            class="m-link"
+            href="involved.html">
+
+            Get Involved
+
+            <span class="m-num">
+              04
+            </span>
+
+          </a>
+
+
+          <div class="m-sub">
+
+            <a href="involved.html#volunteer">
+              Volunteer
+            </a>
+
+            <a href="involved.html#donate">
+              Donate
+            </a>
+
+            <a href="involved.html#partner">
+              Partner
+            </a>
+
+            <a href="involved.html#events">
+              Events
+            </a>
+
+          </div>
+
+        </li>
+
+
+        <li>
+
+          <a
+            class="m-link"
+            href="blog.html">
+
+            Stories
+
+            <span class="m-num">
+              05
+            </span>
+
+          </a>
+
+        </li>
+
+
+        <li>
+
+          <a
+            class="m-link"
+            href="contact.html">
+
+            Contact
+
+            <span class="m-num">
+              06
+            </span>
+
+          </a>
+
+        </li>
+
+
+      </ul>
+
+    </nav>
+
+
+    <div class="m-cta">
+
+      <a
+        class="btn btn-lime"
+        href="#volunteer">
+
+        Become a Volunteer
+
+        <span class="btn-circle">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2">
+
+            <path d="M7 17L17 7"/>
+            <path d="M8 7h9v9"/>
+
+          </svg>
+
+        </span>
+
+      </a>
+
+
+      <a
+        class="link-arrow light"
+        href="login.html">
+
+        Sign In
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.2">
+
+          <path d="M5 12h14"/>
+          <path d="M13 6l6 6-6 6"/>
+
+        </svg>
+
+      </a>
+
+    </div>
+
+
+    <div class="m-contact">
+
+      <span>
+        Talk to our volunteer team
+      </span>
+
+      <a href="mailto:hello@stackly.org">
+        hello@stackly.org
+      </a>
+
+      <a href="tel:+919845012345">
+        +91 98450 12345
+      </a>
+
+    </div>
+
+  </div>
+
+
+
+  <main id="main">
+
+
+
+    <!-- =====================================================
+         01 HERO
+    ====================================================== -->
+
+    <section class="page-hero" aria-label="Get involved with Stackly">
+      <div class="page-hero-inner">
+        <div class="ph-bg"><img src="assets/img/about/about-community.webp" alt="Stackly volunteers working together" fetchpriority="high"></div>
+        <div class="ph-content">
+          <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><i></i><span>Get Involved</span></nav>
+          <h1>Your time. Your skills.<br><em>Your impact.</em></h1>
+          <p>There is more than one way to make a difference. Volunteer your time, support a cause, partner with our mission, or join an event near you.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gi-hero" aria-hidden="true" style="display: none;">
+
+      <div class="gi-hero-inner">
+
+
+        <div class="gi-hero-content">
+
+          <div
+            class="gi-eyebrow"
+            data-aos="fade-up">
+
+            <i></i>
+
+            Get Involved
+
+          </div>
+
+
+          <h1
+            class="gi-hero-title"
+            data-aos="fade-up"
+            data-aos-delay="100">
+
+            Your time.
+            <br>
+
+            Your skills.
+            <br>
+
+            <em>Your impact.</em>
+
+          </h1>
+
+
+          <p
+            class="gi-hero-text"
+            data-aos="fade-up"
+            data-aos-delay="180">
+
+            There is more than one way to make a difference.
+            Volunteer your time, support a cause, partner with
+            our mission, or join an event near you.
+
+          </p>
+
+
+          <div
+            class="gi-hero-actions"
+            data-aos="fade-up"
+            data-aos-delay="260">
+
+            <a
+              class="btn btn-lime"
+              href="#volunteer">
+
+              Start Volunteering
+
+              <span class="btn-circle">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2">
+
+                  <path d="M7 17L17 7"/>
+                  <path d="M8 7h9v9"/>
+
+                </svg>
+
+              </span>
+
+            </a>
+
+
+            <a
+              class="link-arrow light"
+              href="#ways">
+
+              Explore Ways
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2">
+
+                <path d="M7 17L17 7"/>
+                <path d="M8 7h9v9"/>
+
+              </svg>
+
+            </a>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- HERO IMAGE -->
+
+        <div
+          class="gi-visual"
+          data-aos="fade-left"
+          data-aos-delay="200">
+
+          <div class="gi-main-image">
+
+            <img
+              src="assets/img/about/about-community.webp"
+              alt="Stackly volunteers working together">
+
+          </div>
+
+
+          <div
+            class="gi-floating-card"
+            data-aos="zoom-in"
+            data-aos-delay="500">
+
+            <div class="gi-floating-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8">
+
+                <path
+                  d="M12 20s-7.5-4.6-9.5-8.9C1 8 3 5 6.3 5c2.1 0 3.7 1.1 4.5 2.7.8-1.6 2.4-2.7 4.5-2.7C18.6 5 21 8 20.6 11.1 19.5 15.4 12 20 12 20z"/>
+
+              </svg>
+
+            </div>
+
+            <strong>
+              People • Purpose • Progress
+            </strong>
+
+            <span>
+              Every contribution creates a ripple
+              of positive change.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         02 WAYS TO GET INVOLVED
+    ====================================================== -->
+
+    <section
+      class="gi-section"
+      id="ways">
+
+      <div class="gi-container">
+
+
+        <div
+          class="gi-section-head center"
+          data-aos="fade-up">
+
+          <span class="gi-label">
+            Four Ways To Help
+          </span>
+
+          <h2 class="gi-title">
+
+            Choose your way
+            <br>
+
+            <em>to make a difference.</em>
+
+          </h2>
+
+          <p class="gi-subtitle">
+
+            Whether you have an hour, a skill, a donation,
+            or a connection to share, there is a place for you
+            at Stackly.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="gi-options">
+
+
+          <!-- VOLUNTEER -->
+
+          <article
+            class="gi-option"
+            data-aos="fade-up">
+
+            <div>
+
+              <span class="gi-option-number">
+                01
+              </span>
+
+
+              <div class="gi-option-icon">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+
+                  <circle cx="9" cy="8" r="3"/>
+
+                  <path
+                    d="M3.5 19c.6-3 2.8-4.6 5.5-4.6s4.9 1.6 5.5 4.6"/>
+
+                  <circle
+                    cx="16.5"
+                    cy="9.5"
+                    r="2.4"/>
+
+                  <path
+                    d="M15 14.6c2.2.2 3.9 1.6 4.4 4"/>
+
+                </svg>
+
+              </div>
+
+
+              <h3>
+                Volunteer
+              </h3>
+
+              <p>
+                Give your time, skills and energy to
+                causes that matter.
+              </p>
+
+            </div>
+
+
+            <a
+              class="gi-option-link"
+              href="#volunteer">
+
+              Explore Volunteer
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+
+                <path d="M7 17L17 7"/>
+                <path d="M8 7h9v9"/>
+
+              </svg>
+
+            </a>
+
+          </article>
+
+
+
+          <!-- DONATE -->
+
+          <article
+            class="gi-option"
+            data-aos="fade-up"
+            data-aos-delay="80">
+
+            <div>
+
+              <span class="gi-option-number">
+                02
+              </span>
+
+
+              <div class="gi-option-icon">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+
+                  <path
+                    d="M12 20s-7.5-4.6-9.5-8.9C1 8 3 5 6.3 5c2.1 0 3.7 1.1 4.5 2.7.8-1.6 2.4-2.7 4.5-2.7C18.6 5 21 8 20.6 11.1 19.5 15.4 12 20 12 20z"/>
+
+                </svg>
+
+              </div>
+
+
+              <h3>
+                Donate
+              </h3>
+
+              <p>
+                Help fund programs, essentials and
+                community initiatives.
+              </p>
+
+            </div>
+
+
+            <a
+              class="gi-option-link"
+              href="#donate">
+
+              Support a Cause
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+
+                <path d="M7 17L17 7"/>
+                <path d="M8 7h9v9"/>
+
+              </svg>
+
+            </a>
+
+          </article>
+
+
+
+          <!-- PARTNER -->
+
+          <article
+            class="gi-option"
+            data-aos="fade-up"
+            data-aos-delay="160">
+
+            <div>
+
+              <span class="gi-option-number">
+                03
+              </span>
+
+
+              <div class="gi-option-icon">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+
+                  <path
+                    d="M8 12.5l3 3 6.5-6.5"/>
+
+                  <path
+                    d="M4 12a8 8 0 1 0 16 0"/>
+
+                </svg>
+
+              </div>
+
+
+              <h3>
+                Partner
+              </h3>
+
+              <p>
+                Bring your organisation, team or network
+                into meaningful community work.
+              </p>
+
+            </div>
+
+
+            <a
+              class="gi-option-link"
+              href="#partner">
+
+              Partner With Us
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+
+                <path d="M7 17L17 7"/>
+                <path d="M8 7h9v9"/>
+
+              </svg>
+
+            </a>
+
+          </article>
+
+
+
+          <!-- EVENTS -->
+
+          <article
+            class="gi-option"
+            data-aos="fade-up"
+            data-aos-delay="240">
+
+            <div>
+
+              <span class="gi-option-number">
+                04
+              </span>
+
+
+              <div class="gi-option-icon">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+
+                  <rect
+                    x="3.5"
+                    y="5"
+                    width="17"
+                    height="16"
+                    rx="3"/>
+
+                  <path d="M3.5 10h17"/>
+                  <path d="M8 3v4"/>
+                  <path d="M16 3v4"/>
+
+                </svg>
+
+              </div>
+
+
+              <h3>
+                Events
+              </h3>
+
+              <p>
+                Join upcoming drives, campaigns and
+                community experiences.
+              </p>
+
+            </div>
+
+
+            <a
+              class="gi-option-link"
+              href="#events">
+
+              View Events
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+
+                <path d="M7 17L17 7"/>
+                <path d="M8 7h9v9"/>
+
+              </svg>
+
+            </a>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         03 VOLUNTEER
+    ====================================================== -->
+
+    <section
+      class="gi-section"
+      id="volunteer">
+
+      <div class="gi-container">
+
+        <div class="gi-split">
+
+
+          <div
+            class="gi-image-wrap"
+            data-aos="fade-right">
+
+            <div class="gi-image">
+
+              <img
+                src="assets/img/about/about-community.webp"
+                alt="Stackly volunteers planting a tree together"
+                loading="lazy">
+
+            </div>
+
+          </div>
+
+
+
+          <div
+            class="gi-copy"
+            data-aos="fade-left">
+
+            <span class="gi-label">
+              Volunteer With Us
+            </span>
+
+
+            <h2 class="gi-title">
+
+              Show up.
+              <br>
+
+              <em>Make it count.</em>
+
+            </h2>
+
+
+            <p>
+
+              You do not need to have endless free time
+              to make an impact. A few meaningful hours,
+              a useful skill or simply showing up can make
+              someone's day better.
+
+            </p>
+
+
+            <p>
+
+              Stackly connects volunteers with structured
+              programs where your contribution meets a
+              real community need.
+
+            </p>
+
+
+            <ul class="gi-check-list">
+
+              <li>
+
+                <span class="gi-check">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2">
+
+                    <path d="M5 12l4 4L19 6"/>
+
+                  </svg>
+
+                </span>
+
+                Flexible volunteering opportunities
+
+              </li>
+
+
+              <li>
+
+                <span class="gi-check">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2">
+
+                    <path d="M5 12l4 4L19 6"/>
+
+                  </svg>
+
+                </span>
+
+                Local teams and community programs
+
+              </li>
+
+
+              <li>
+
+                <span class="gi-check">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2">
+
+                    <path d="M5 12l4 4L19 6"/>
+
+                  </svg>
+
+                </span>
+
+                Track your hours and contribution
+
+              </li>
+
+
+              <li>
+
+                <span class="gi-check">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2">
+
+                    <path d="M5 12l4 4L19 6"/>
+
+                  </svg>
+
+                </span>
+
+                Certificates and leadership opportunities
+
+              </li>
+
+            </ul>
+
+
+            <a
+              class="btn btn-lime"
+              href="register.html">
+
+              Become a Volunteer
+
+              <span class="btn-circle">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2">
+
+                  <path d="M7 17L17 7"/>
+                  <path d="M8 7h9v9"/>
+
+                </svg>
+
+              </span>
+
+            </a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         04 DONATE
+    ====================================================== -->
+
+    <section
+      class="gi-section gi-dark"
+      id="donate">
+
+      <div class="gi-container">
+
+        <div class="gi-donate-grid">
+
+
+          <div
+            class="gi-donate-copy"
+            data-aos="fade-right">
+
+            <span class="gi-label light">
+              Support The Mission
+            </span>
+
+
+            <h2 class="gi-title light">
+
+              Your generosity
+              <br>
+
+              <em class="lime">
+                becomes action.
+              </em>
+
+            </h2>
+
+
+            <p>
+
+              Donations help us run community programs,
+              provide essential support and respond quickly
+              when people need help most.
+
+            </p>
+
+
+            <p>
+
+              Every contribution, large or small, helps turn
+              good intentions into measurable impact.
+
+            </p>
+
+          </div>
+
+
+
+          <div
+            class="gi-donation-card"
+            data-aos="fade-left">
+
+            <h3>
+              Make a Difference
+            </h3>
+
+
+            <p>
+              Choose an amount to support Stackly's work.
+            </p>
+
+
+            <div class="gi-amounts">
+
+              <button
+                class="gi-amount active"
+                type="button">
+                ₹500
+              </button>
+
+              <button
+                class="gi-amount"
+                type="button">
+                ₹1,000
+              </button>
+
+              <button
+                class="gi-amount"
+                type="button">
+                ₹2,500
+              </button>
+
+              <button
+                class="gi-amount"
+                type="button">
+                ₹5,000
+              </button>
+
+              <button
+                class="gi-amount"
+                type="button">
+                ₹10,000
+              </button>
+
+              <button
+                class="gi-amount"
+                type="button">
+                Other
+              </button>
+
+            </div>
+
+
+            <a
+              class="btn btn-lime"
+              href="contact.html">
+
+              Continue to Donate
+
+              <span class="btn-circle">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2">
+
+                  <path d="M7 17L17 7"/>
+                  <path d="M8 7h9v9"/>
+
+                </svg>
+
+              </span>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         05 PARTNER
+    ====================================================== -->
+
+    <section
+      class="gi-section"
+      id="partner">
+
+      <div class="gi-container">
+
+
+        <div
+          class="gi-section-head"
+          data-aos="fade-up">
+
+          <span class="gi-label">
+            Partner With Us
+          </span>
+
+
+          <h2 class="gi-title">
+
+            Let's build something
+            <br>
+
+            <em>meaningful together.</em>
+
+          </h2>
+
+
+          <p class="gi-subtitle">
+
+            Organisations, companies, schools and community
+            groups can help us expand the reach and depth
+            of our programs.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="gi-partners">
+
+
+          <article
+            class="gi-partner-card"
+            data-aos="fade-up">
+
+            <span>
+              01 — CORPORATE
+            </span>
+
+            <h3>
+              Corporate Volunteering
+            </h3>
+
+            <p>
+              Bring your employees together around
+              meaningful community initiatives and
+              team volunteering.
+            </p>
+
+          </article>
+
+
+
+          <article
+            class="gi-partner-card"
+            data-aos="fade-up"
+            data-aos-delay="100">
+
+            <span>
+              02 — COMMUNITY
+            </span>
+
+            <h3>
+              Community Partnerships
+            </h3>
+
+            <p>
+              Work with local teams and organisations
+              to identify needs and create sustainable
+              solutions.
+            </p>
+
+          </article>
+
+
+
+          <article
+            class="gi-partner-card"
+            data-aos="fade-up"
+            data-aos-delay="200">
+
+            <span>
+              03 — KNOWLEDGE
+            </span>
+
+            <h3>
+              Skills & Expertise
+            </h3>
+
+            <p>
+              Share professional knowledge, mentorship
+              and specialised skills with communities
+              that need them.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         06 EVENTS
+    ====================================================== -->
+
+    <section
+      class="gi-section"
+      id="events"
+      style="background:#F7F8F2;">
+
+      <div class="gi-container">
+
+
+        <div
+          class="gi-section-head center"
+          data-aos="fade-up">
+
+          <span class="gi-label">
+            Upcoming Opportunities
+          </span>
+
+
+          <h2 class="gi-title">
+
+            Find an event.
+            <br>
+
+            <em>Show up.</em>
+
+          </h2>
+
+
+          <p class="gi-subtitle">
+
+            Join a local Stackly initiative and turn
+            a free day into something meaningful.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="gi-events">
+
+
+          <article
+            class="gi-event"
+            data-aos="fade-up">
+
+            <div class="gi-event-date">
+
+              <strong>
+                21
+              </strong>
+
+              <small>
+                Sep
+              </small>
+
+            </div>
+
+
+            <div>
+
+              <h3>
+                Green Tomorrow — Tree Plantation
+              </h3>
+
+              <p>
+                Chennai · Environmental Care · 7:30 AM
+              </p>
+
+            </div>
+
+
+            <a
+              class="btn btn-lime btn-sm"
+              href="contact.html">
+
+              Join Event
+
+            </a>
+
+          </article>
+
+
+
+          <article
+            class="gi-event"
+            data-aos="fade-up"
+            data-aos-delay="100">
+
+            <div class="gi-event-date">
+
+              <strong>
+                28
+              </strong>
+
+              <small>
+                Sep
+              </small>
+
+            </div>
+
+
+            <div>
+
+              <h3>
+                Community Care — Essentials Drive
+              </h3>
+
+              <p>
+                Chennai · Community Development · 9:00 AM
+              </p>
+
+            </div>
+
+
+            <a
+              class="btn btn-lime btn-sm"
+              href="contact.html">
+
+              Join Event
+
+            </a>
+
+          </article>
+
+
+
+          <article
+            class="gi-event"
+            data-aos="fade-up"
+            data-aos-delay="200">
+
+            <div class="gi-event-date">
+
+              <strong>
+                05
+              </strong>
+
+              <small>
+                Oct
+              </small>
+
+            </div>
+
+
+            <div>
+
+              <h3>
+                Learn & Grow — Student Mentorship
+              </h3>
+
+              <p>
+                Chennai · Education · 10:00 AM
+              </p>
+
+            </div>
+
+
+            <a
+              class="btn btn-lime btn-sm"
+              href="contact.html">
+
+              Join Event
+
+            </a>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         07 VOLUNTEER JOURNEY
+    ====================================================== -->
+
+    <section class="gi-section">
+
+      <div class="gi-container">
+
+
+        <div
+          class="gi-section-head center"
+          data-aos="fade-up">
+
+          <span class="gi-label">
+            How It Works
+          </span>
+
+
+          <h2 class="gi-title">
+
+            From willingness
+            <br>
+
+            <em>to meaningful action.</em>
+
+          </h2>
+
+        </div>
+
+
+
+        <div class="gi-journey">
+
+
+          <div
+            class="gi-step"
+            data-aos="fade-up">
+
+            <div class="gi-step-number">
+              01
+            </div>
+
+            <h3>
+              Choose
+            </h3>
+
+            <p>
+              Pick the cause or opportunity
+              that speaks to you.
+            </p>
+
+          </div>
+
+
+
+          <div
+            class="gi-step"
+            data-aos="fade-up"
+            data-aos-delay="100">
+
+            <div class="gi-step-number">
+              02
+            </div>
+
+            <h3>
+              Register
+            </h3>
+
+            <p>
+              Create your volunteer profile
+              and tell us what you can offer.
+            </p>
+
+          </div>
+
+
+
+          <div
+            class="gi-step"
+            data-aos="fade-up"
+            data-aos-delay="200">
+
+            <div class="gi-step-number">
+              03
+            </div>
+
+            <h3>
+              Participate
+            </h3>
+
+            <p>
+              Join a team, attend an event
+              and contribute your time.
+            </p>
+
+          </div>
+
+
+
+          <div
+            class="gi-step"
+            data-aos="fade-up"
+            data-aos-delay="300">
+
+            <div class="gi-step-number">
+              04
+            </div>
+
+            <h3>
+              Make Impact
+            </h3>
+
+            <p>
+              Track your contribution and
+              see the difference you helped create.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         08 FINAL CTA
+    ====================================================== -->
+
+    <section class="final-cta" aria-labelledby="involved-cta-title">
+      <div class="final-cta-inner" data-parallax>
+        <img src="assets/img/impact/cta-community.webp" alt="Stackly volunteers working together at a community event" loading="lazy">
+        <div>
+          <h2 id="involved-cta-title" data-aos="fade-up">Someone needs<br><em>what you can give.</em></h2>
+          <p data-aos="fade-up">Whether you give your time, skills, resources or simply your support, you can help create a stronger community.</p>
+          <div class="cta-actions" data-aos="fade-up">
+            <a class="btn btn-lime" href="#volunteer" data-cursor="go">Get Started
+              <span class="btn-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span>
+            </a>
+            <a class="btn btn-outline-light" href="#ways">Explore Ways
+              <span class="btn-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+  </main>
+
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer class="footer">
+
+    <div class="container">
+
+
+      <div class="footer-grid">
+
+
+        <!-- BRAND -->
+
+        <div class="footer-brand">
+
+          <a
+            class="brand"
+            href="index.html">
+
+            <span class="brand-mark"><img src="assets/img/impact/logo.webp" alt="Stackly logo"></span>
+
+
+            <span class="brand-text">
+
+              <span class="brand-name"><img src="assets/img/impact/logo STAC.webp" alt="Stackly"></span>
+
+              <span class="brand-tag">
+                Volunteer Organization
+              </span>
+
+            </span>
+
+          </a>
+
+
+          <p>
+            People, purpose and progress —
+            together for a stronger tomorrow.
+          </p>
+
+          <div class="footer-contact">
+            <a href="mailto:hello@stackly.org"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>hello@stackly.org</a>
+            <a href="tel:+919845012345"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l1.5 4.5L8 10c1 2.5 3 4.5 5.5 5.5l1.5-2.5L19.5 14v4c0 1-1 2-2 1.8C10 19 5 14 4.2 6.5 4 5.5 4.5 4 5 4z"/></svg>+91 98450 12345</a>
+          </div>
+
+        </div>
+
+
+
+        <!-- ABOUT -->
+
+        <div class="footer-col">
+
+          <h4>About</h4>
+
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="service.html">Programs</a></li>
+            <li><a href="involved.html">Get Involved</a></li>
+            <li><a href="blog.html">Stories</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+
+        </div>
+
+
+
+        <!-- PROGRAMS -->
+
+        <div class="footer-col">
+
+          <h4>
+            Programs
+          </h4>
+
+          <ul>
+
+            <li>
+              <a href="404.html">
+                Community Development
+              </a>
+            </li>
+
+            <li>
+              <a href="404.html">
+                Environmental Care
+              </a>
+            </li>
+
+            <li>
+              <a href="404.html">
+                Education
+              </a>
+            </li>
+
+            <li>
+              <a href="404.html">
+                Healthcare
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+
+        <!-- GET INVOLVED -->
+
+        <div class="footer-col">
+
+          <h4>
+            Get Involved
+          </h4>
+
+          <ul>
+
+            <li>
+              <a href="404.html">
+                Volunteer
+              </a>
+            </li>
+
+            <li>
+              <a href="404.html">
+                Donate
+              </a>
+            </li>
+
+            <li>
+              <a href="404.html">
+                Partner With Us
+              </a>
+            </li>
+
+            <li>
+              <a href="404.html">
+                Events
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+
+        <!-- CONTACT -->
+
+        <div class="footer-col">
+
+          <h4>
+            Contact
+          </h4>
+
+          <ul>
+
+            <li>
+              <a href="mailto:hello@stackly.org">
+                hello@stackly.org
+              </a>
+            </li>
+
+            <li>
+              <a href="tel:+919845012345">
+                +91 98450 12345
+              </a>
+            </li>
+
+            <li>
+              <a href="contact.html">
+                Contact Us
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <!-- RESOURCES -->
+
+        <div class="footer-col">
+
+          <h4>Resources</h4>
+
+          <ul>
+            <li><a href="404.html">Stories</a></li>
+            <li><a href="404.html">Blog</a></li>
+            <li><a href="404.html">FAQ</a></li>
+            <li><a href="404.html">Impact Reports</a></li>
+          </ul>
+
+        </div>
+
+
+      </div>
+
+
+
+      <div class="footer-bottom">
+
+        <span>© <span data-year>2026</span> Stackly Volunteer Organization. All Rights Reserved.</span>
+        <div class="social">
+          <a href="404.html" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="404.html" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M8 10.5V17"/><path d="M8 7.5v.01"/><path d="M12 17v-3.8c0-1.5 1.2-2.7 2.7-2.7s2.8 1.2 2.8 2.7V17"/></svg></a>
+          <a href="404.html" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="4"/><path d="M10.5 9.8v4.4L14.8 12l-4.3-2.2z" fill="currentColor" stroke="none"/></svg></a>
+          <a href="404.html" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 8.5V7c0-.8.5-1.3 1.3-1.3H17V3h-2.5C11.9 3 10.5 4.6 10.5 7v1.5H8V12h2.5v9H14v-9h2.6l.4-3.5H14z"/></svg></a>
+        </div>
+        <div class="legal">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms &amp; Conditions</a>
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =======================================================
+       SCRIPTS
+  ======================================================== -->
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+  </script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
+  </script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js">
+  </script>
+
+
+  <!-- Existing Stackly JS -->
+
+  <script
+    src="assets/js/navigation.js"
+    defer>
+  </script>
+
+  <script
+    src="assets/js/animations.js"
+    defer>
+  </script>
+
+  <script
+    src="assets/js/main.js"
+    defer>
+  </script>
+
+  <script
+    src="assets/js/forms.js"
+    defer>
+  </script>
+
+
+
+  <!-- =======================================================
+       PAGE-SPECIFIC JS
+  ======================================================== -->
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+
+      /* -------------------------------------------------------
+         AOS
+      ------------------------------------------------------- */
+
+      if (typeof AOS !== "undefined") {
+
+        AOS.init({
+          duration: 900,
+          easing: "ease-out-cubic",
+          once: true,
+          offset: 70
+        });
+
+      }
+
+
+
+      /* -------------------------------------------------------
+         DONATION AMOUNTS
+      ------------------------------------------------------- */
+
+      const amounts =
+        document.querySelectorAll(".gi-amount");
+
+
+      amounts.forEach(function (amount) {
+
+        amount.addEventListener("click", function () {
+
+          amounts.forEach(function (item) {
+
+            item.classList.remove("active");
+
+          });
+
+          this.classList.add("active");
+
+        });
+
+      });
+
+
+
+      /* -------------------------------------------------------
+         SMOOTH ANCHOR SCROLL
+      ------------------------------------------------------- */
+
+      document
+        .querySelectorAll('a[href^="#"]')
+        .forEach(function (link) {
+
+          link.addEventListener("click", function (event) {
+
+            const targetId =
+              this.getAttribute("href");
+
+            if (
+              targetId &&
+              targetId !== "#"
+            ) {
+
+              const target =
+                document.querySelector(targetId);
+
+              if (target) {
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start"
+                });
+
+              }
+
+            }
+
+          });
+
+        });
+
+
+
+      /* -------------------------------------------------------
+         SIMPLE FLOATING HERO CARD
+      ------------------------------------------------------- */
+
+      if (
+        typeof gsap !== "undefined" &&
+        !window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches
+      ) {
+
+        gsap.to(".gi-floating-card", {
+
+          y: -12,
+
+          duration: 2.4,
+
+          ease: "sine.inOut",
+
+          repeat: -1,
+
+          yoyo: true
+
+        });
+
+
+        gsap.to(".gi-main-image", {
+
+          y: -7,
+
+          duration: 3.5,
+
+          ease: "sine.inOut",
+
+          repeat: -1,
+
+          yoyo: true
+
+        });
+
+      }
+
+    });
+
+  </script>
+
+
+</body>
+
+</html>

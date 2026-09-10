@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become a Volunteer | Stackly</title>
+<meta name="description" content="Register with Stackly to join volunteer programs, events, and community initiatives across India.">
+<link rel="icon" href="assets/svg/stackly-symbol-lime.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --black:#101010;
+  --lime:#c8ff00;
+  --lime-soft:#efffc4;
+  --bg:#f4f5f1;
+  --white:#fff;
+  --text:#151515;
+  --muted:#777b74;
+  --border:#e1e4dc;
+  --danger:#d83d3d;
+  --shadow:0 22px 65px rgba(17,17,17,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;font-family:Manrope,sans-serif;background:var(--bg);color:var(--text)}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+button{cursor:pointer}
+
+.page{min-height:100vh;display:grid;grid-template-columns:.82fr 1.18fr}
+
+/* BRAND SIDE */
+.brand-side{
+  min-height:100vh;background:var(--black);color:#fff;padding:30px 42px;
+  position:relative;overflow:hidden;display:flex;flex-direction:column;
+}
+.brand-side:before,.brand-side:after{
+  content:"";position:absolute;border:1px solid rgba(200,255,0,.14);border-radius:50%;pointer-events:none
+}
+.brand-side:before{width:560px;height:560px;right:-310px;top:-220px}
+.brand-side:after{width:330px;height:330px;left:-220px;bottom:-170px}
+.logo img{
+  width:165px;height:auto;display:block;position:relative;z-index:2;
+  filter:brightness(0) saturate(100%) invert(84%) sepia(100%) saturate(1800%) hue-rotate(25deg) brightness(105%) contrast(105%);
+}
+.brand-copy{position:relative;z-index:2;margin:auto 0;padding:55px 0}
+.kicker{
+  color:var(--lime);font-size:10px;font-weight:900;letter-spacing:2px;
+  display:flex;align-items:center;gap:9px;margin-bottom:22px
+}
+.kicker:before{content:"";width:28px;height:2px;background:var(--lime)}
+.brand-copy h1{
+  font-family:"Playfair Display",serif;font-size:clamp(42px,4.3vw,67px);
+  line-height:1.04;letter-spacing:-1.6px;font-weight:600;margin-bottom:22px
+}
+.brand-copy h1 em{color:var(--lime);font-style:italic}
+.brand-copy>p{max-width:500px;color:#aaa;font-size:13px;line-height:1.9}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:34px;max-width:570px}
+.benefit{
+  border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.035);
+  border-radius:15px;padding:15px;min-height:100px
+}
+.bicon{
+  width:31px;height:31px;border-radius:9px;background:var(--lime);color:#111;
+  display:grid;place-items:center;font-weight:900;font-size:13px;margin-bottom:12px
+}
+.benefit strong{display:block;font-size:10px}
+.benefit span{display:block;color:#858585;font-size:9px;margin-top:5px;line-height:1.4}
+.side-footer{color:#707070;font-size:9px;letter-spacing:.7px;position:relative;z-index:2}
+
+/* FORM SIDE */
+.form-side{min-height:100vh;padding:30px 55px;overflow-y:auto}
+.topbar{display:flex;justify-content:flex-end;margin-bottom:28px}
+.back{
+  display:inline-flex;align-items:center;gap:8px;padding:10px 13px;
+  border:1px solid var(--border);border-radius:11px;background:#fff;
+  font-size:10px;font-weight:800;color:#555;transition:.2s
+}
+.back:hover{border-color:#111;color:#111;transform:translateY(-1px)}
+.back svg{width:15px;height:15px;transform:rotate(180deg)}
+.shell{max-width:650px;margin:auto}
+.mobile-logo{display:none}
+.heading{margin-bottom:20px}
+.heading small{display:block;color:#768000;font-size:9px;font-weight:900;letter-spacing:1.7px;margin-bottom:8px}
+.heading h2{font-size:31px;line-height:1.15;letter-spacing:-1px;margin-bottom:8px}
+.heading p{font-size:11px;color:var(--muted)}
+.heading a{color:#596300;font-weight:800}
+
+/* ROLE */
+.roles{
+  display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:5px;
+  background:#fff;border:1px solid var(--border);border-radius:15px;margin-bottom:10px
+}
+.role{
+  border:0;background:transparent;color:#777;border-radius:11px;padding:12px;
+  display:flex;align-items:center;justify-content:center;gap:8px;font-size:11px;font-weight:800
+}
+.role svg{width:17px;height:17px}
+.role.active{background:#111;color:var(--lime)}
+.role-info{
+  background:var(--lime-soft);border:1px solid #dceca5;border-radius:11px;
+  padding:10px 13px;color:#505900;font-size:10px;line-height:1.55;margin-bottom:17px
+}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--border);border-radius:23px;padding:24px;box-shadow:var(--shadow)}
+.alert{
+  display:none;background:#fff0f0;border:1px solid #f1caca;color:#a32d2d;
+  border-radius:10px;padding:10px 12px;font-size:10px;font-weight:700;margin-bottom:14px
+}
+.alert.show{display:block}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field.full{grid-column:1/-1}
+label.field-label{display:block;font-size:10px;font-weight:900;margin-bottom:7px}
+.input-wrap{position:relative}
+input{
+  width:100%;height:45px;padding:0 13px;border:1px solid var(--border);
+  border-radius:11px;background:#fafbf8;outline:none;font-size:11px;transition:.2s
+}
+input:focus{background:#fff;border-color:#111;box-shadow:0 0 0 3px rgba(200,255,0,.22)}
+.field.invalid input{border-color:var(--danger)}
+.error{display:none;color:var(--danger);font-size:9px;margin-top:5px}
+.field.invalid .error{display:block}
+.password{padding-right:45px}
+.eye{
+  position:absolute;right:5px;top:5px;width:35px;height:35px;border:0;
+  border-radius:8px;background:transparent;color:#777;display:grid;place-items:center
+}
+.eye:hover{background:#f0f1ed;color:#111}
+.eye svg{width:17px;height:17px}
+.meter{display:flex;gap:4px;margin-top:7px}
+.meter i{height:3px;flex:1;background:#e5e7e1;border-radius:10px}
+.meter[data-level="1"] i:nth-child(1),
+.meter[data-level="2"] i:nth-child(-n+2),
+.meter[data-level="3"] i:nth-child(-n+3),
+.meter[data-level="4"] i:nth-child(-n+4){background:var(--lime)}
+.hint{font-size:9px;color:#92958e;margin-top:5px;display:block}
+.terms{
+  grid-column:1/-1;display:flex;gap:8px;align-items:flex-start;
+  font-size:9px;color:#777;line-height:1.6
+}
+.terms input{width:15px;height:15px;accent-color:#111;margin-top:1px;flex:0 0 auto}
+.terms a{color:#596300;font-weight:800}
+.submit{
+  grid-column:1/-1;height:48px;border:0;border-radius:12px;background:var(--lime);
+  color:#111;font-size:11px;font-weight:900;display:flex;align-items:center;
+  justify-content:center;gap:10px;transition:.2s
+}
+.submit:hover{background:#b9ed00;transform:translateY(-1px)}
+.circle{width:25px;height:25px;border-radius:50%;background:#111;color:var(--lime);display:grid;place-items:center}
+.circle svg{width:13px;height:13px}
+.note{text-align:center;color:#999;font-size:9px;margin-top:17px;line-height:1.6}
+.success{display:none;text-align:center;padding:35px 10px}
+.success.show{display:block}
+.success-icon{width:62px;height:62px;border-radius:50%;background:var(--lime);display:grid;place-items:center;margin:0 auto 16px;font-size:25px;font-weight:900}
+.success h3{font-size:21px;margin-bottom:7px}
+.success p{font-size:11px;color:var(--muted);line-height:1.7}
+
+/* RESPONSIVE */
+@media(max-width:1050px){
+  .page{grid-template-columns:1fr}
+  .brand-side{min-height:370px;padding:25px 30px}
+  .brand-copy{padding:35px 0}
+  .brand-copy h1{font-size:48px}
+  .side-footer{display:none}
+  .form-side{min-height:auto;padding:30px}
+  .shell{max-width:720px}
+}
+@media(max-width:650px){
+  .brand-side{min-height:300px;padding:22px 20px}
+  .logo img{width:135px}
+  .brand-copy{padding:28px 0 4px}
+  .brand-copy h1{font-size:36px;letter-spacing:-1px;margin-bottom:12px}
+  .brand-copy>p{font-size:11px;line-height:1.65}
+  .benefits{display:none}
+  .form-side{padding:18px 15px 35px;background:#fff}
+  .topbar{margin-bottom:20px}
+  .mobile-logo{display:block;margin-bottom:22px}
+  .mobile-logo img{
+    width:130px;display:block;
+    filter:brightness(0) saturate(100%) invert(84%) sepia(100%) saturate(1800%) hue-rotate(25deg) brightness(105%) contrast(105%);
+  }
+  .heading h2{font-size:27px}
+  .card{padding:17px;border-radius:19px;box-shadow:0 12px 35px rgba(17,17,17,.07)}
+  .grid{grid-template-columns:1fr;gap:13px}
+  .field.full,.terms,.submit{grid-column:auto}
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <section class="brand-side">
+    <a class="logo" href="index.html" aria-label="Stackly Home">
+      <img src="assets/img/impact/logo STAC.webp" alt="Stackly">
+    </a>
+
+    <div class="brand-copy">
+      <div class="kicker">STACKLY / VOLUNTEER</div>
+      <h1>Your time can change <em>someone's tomorrow.</em></h1>
+      <p>Join local programs, community events and meaningful initiatives. Find a role that fits your skills, schedule and interests.</p>
+
+      <div class="benefits">
+        <div class="benefit">
+          <div class="bicon">✓</div>
+          <strong>8 Programs</strong>
+          <span>Multiple causes to explore</span>
+        </div>
+        <div class="benefit">
+          <div class="bicon">◎</div>
+          <strong>40+ Cities</strong>
+          <span>Local community teams</span>
+        </div>
+        <div class="benefit">
+          <div class="bicon">↗</div>
+          <strong>Flexible Roles</strong>
+          <span>Remote-friendly opportunities</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-footer">PEOPLE · PURPOSE · PROGRESS</div>
+  </section>
+
+  <main class="form-side">
+    <div class="topbar">
+      <a class="back" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
+        </svg>
+        Back to Home
+      </a>
+    </div>
+
+    <div class="shell">
+      <a class="mobile-logo" href="index.html" aria-label="Stackly Home">
+        <img src="assets/img/impact/logo STAC.webp" alt="Stackly">
+      </a>
+
+      <div class="heading">
+        <small>CREATE YOUR ACCOUNT</small>
+        <h2>Become part of Stackly.</h2>
+        <p>Already registered? <a href="login.html">Sign in here</a></p>
+      </div>
+
+      <div class="roles" role="group" aria-label="Choose your role">
+        <button class="role active" type="button" data-role="user">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="8" r="3.4"/><path d="M5 20c.8-3.6 3.4-5.4 7-5.4s6.2 1.8 7 5.4"/>
+          </svg>
+          Volunteer
+        </button>
+        <button class="role" type="button" data-role="admin">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 3l7.5 3v5.5c0 4.8-3.2 8-7.5 9.5-4.3-1.5-7.5-4.7-7.5-9.5V6L12 3z"/>
+            <path d="M9 12l2.2 2.2L15.5 10"/>
+          </svg>
+          Organizer
+        </button>
+      </div>
+
+      <div class="role-info" id="roleInfo">Create your volunteer profile, discover opportunities and manage your community commitments.</div>
+
+      <div class="card">
+        <div class="alert" id="alert"></div>
+
+        <form id="registerForm" novalidate>
+          <input type="hidden" id="role" value="user">
+
+          <div class="grid">
+            <div class="field">
+              <label class="field-label" for="name">Full Name</label>
+              <input id="name" type="text" placeholder="Your full name" autocomplete="name">
+              <span class="error">Please enter your full name.</span>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="email">Email Address</label>
+              <input id="email" type="email" placeholder="you@example.com" autocomplete="email">
+              <span class="error">Enter a valid email address.</span>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="phone">Phone Number</label>
+              <input id="phone" type="tel" placeholder="+91 98765 43210" autocomplete="tel">
+              <span class="error">Enter a valid phone number.</span>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="location">Location</label>
+              <input id="location" type="text" placeholder="City / Area" autocomplete="address-level2">
+              <span class="error">Please add your city or location.</span>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="password">Password</label>
+              <div class="input-wrap">
+                <input class="password" id="password" type="password" placeholder="Minimum 8 characters" autocomplete="new-password">
+                <button class="eye" type="button" aria-label="Show password">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="meter" id="meter" data-level="0"><i></i><i></i><i></i><i></i></div>
+              <span class="hint">Use 8+ characters.</span>
+              <span class="error">Password must be at least 8 characters.</span>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="password2">Confirm Password</label>
+              <div class="input-wrap">
+                <input class="password" id="password2" type="password" placeholder="Repeat your password" autocomplete="new-password">
+                <button class="eye" type="button" aria-label="Show password">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </button>
+              </div>
+              <span class="error">Passwords do not match.</span>
+            </div>
+
+            <label class="terms">
+              <input id="terms" type="checkbox">
+              <span>I agree to the <a href="404.html">Terms &amp; Conditions</a> and <a href="404.html">Privacy Policy</a>.</span>
+            </label>
+
+            <button class="submit" type="submit">
+              Create Account
+              <span class="circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </form>
+
+        <div class="success" id="success">
+          <div class="success-icon">✓</div>
+          <h3>You're all set.</h3>
+          <p id="successText">Your Stackly account has been created successfully.</p>
+        </div>
+      </div>
+
+      <div class="note">Your information is used only to manage your Stackly account and volunteer participation.</div>
+    </div>
+  </main>
+</div>
+
+<script>
+const roles=document.querySelectorAll(".role");
+const role=document.getElementById("role");
+const roleInfo=document.getElementById("roleInfo");
+
+roles.forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    roles.forEach(x=>x.classList.remove("active"));
+    btn.classList.add("active");
+    role.value=btn.dataset.role;
+    roleInfo.textContent=btn.dataset.role==="admin"
+      ? "Create an organizer account to manage programs, events, volunteers and community initiatives."
+      : "Create your volunteer profile, discover opportunities and manage your community commitments.";
+  });
+});
+
+document.querySelectorAll(".eye").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const input=btn.parentElement.querySelector("input");
+    input.type=input.type==="password"?"text":"password";
+    btn.setAttribute("aria-label",input.type==="password"?"Show password":"Hide password");
+  });
+});
+
+const password=document.getElementById("password");
+const meter=document.getElementById("meter");
+
+password.addEventListener("input",()=>{
+  const v=password.value;
+  let level=0;
+  if(v.length>=8) level++;
+  if(/[A-Z]/.test(v)) level++;
+  if(/[0-9]/.test(v)) level++;
+  if(/[^A-Za-z0-9]/.test(v)) level++;
+  meter.dataset.level=level;
+});
+
+const form=document.getElementById("registerForm");
+const alertBox=document.getElementById("alert");
+
+function invalid(id,state){
+  document.getElementById(id).closest(".field").classList.toggle("invalid",state);
+}
+function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)}
+function validPhone(v){return v.replace(/\D/g,"").length>=10}
+
+form.addEventListener("submit",e=>{
+  e.preventDefault();
+
+  const name=document.getElementById("name").value.trim();
+  const email=document.getElementById("email").value.trim();
+  const phone=document.getElementById("phone").value.trim();
+  const location=document.getElementById("location").value.trim();
+  const p1=password.value;
+  const p2=document.getElementById("password2").value;
+  const terms=document.getElementById("terms").checked;
+
+  invalid("name",!name);
+  invalid("email",!validEmail(email));
+  invalid("phone",!validPhone(phone));
+  invalid("location",!location);
+  invalid("password",p1.length<8);
+  invalid("password2",!p2||p1!==p2);
+
+  if(!terms){
+    alertBox.textContent="Please accept the Terms & Conditions and Privacy Policy.";
+    alertBox.classList.add("show");
+    return;
+  }
+
+  const hasError=!name||!validEmail(email)||!validPhone(phone)||!location||p1.length<8||p1!==p2;
+  if(hasError){
+    alertBox.textContent="Please check the highlighted fields and try again.";
+    alertBox.classList.add("show");
+    return;
+  }
+
+  alertBox.classList.remove("show");
+
+  localStorage.setItem("stacklyEmail",email);
+  localStorage.setItem("stacklyName",name);
+  localStorage.setItem("stacklyPortal",role.value);
+  localStorage.setItem("stacklyPhone",phone);
+  localStorage.setItem("stacklyLocation",location);
+
+  form.style.display="none";
+  document.getElementById("success").classList.add("show");
+  document.getElementById("successText").textContent=
+    `Your ${role.value==="admin"?"organizer":"volunteer"} account has been created for ${email}.`;
+
+  setTimeout(()=>{
+    window.location.href=role.value==="admin"
+      ?"organizer-dashboard.html"
+      :"volunteer-dashboard.html";
+  },1200);
+});
+</script>
+</body>
+</html>

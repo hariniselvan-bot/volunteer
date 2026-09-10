@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer Programs | Stackly</title>
+  <meta name="description" content="Explore Stackly volunteer programs — community development, environment, education, healthcare, food support, empowerment, relief, and animal care.">
+  <meta property="og:title" content="Volunteer Programs | Stackly">
+  <meta property="og:description" content="Explore Stackly volunteer programs — community development, environment, education, healthcare, food support, empowerment, relief, and animal care.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/svg/stackly-symbol-lime.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="pre-inner">
+      <div class="pre-logo"><img src="assets/img/impact/logo.webp" alt="Stackly logo"></div>
+      <div class="pre-word"><strong>Stackly</strong><small>Volunteer Organization</small></div>
+      <div class="pre-bar"><i></i></div>
+      <div class="pre-count">0%</div>
+    </div>
+  </div>
+
+  <!-- Page transition -->
+  <div class="page-transition" aria-hidden="true"><img src="assets/img/impact/logo.webp" alt="Stackly logo">
+  </div>
+
+  <div class="scroll-progress" aria-hidden="true"><i></i></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-bar">
+      <a class="brand" href="index.html" aria-label="Stackly — home">
+        <span class="brand-mark"><img src="assets/img/impact/logo.webp" alt="Stackly logo"></span>
+        <span class="brand-text">
+          <span class="brand-name"><img src="assets/img/impact/logo STAC.webp" alt="Stackly"></span>
+          <span class="brand-tag">Volunteer Organization</span>
+        </span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-main">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="has-dropdown">
+            <a class="nav-link" href="service.html" aria-haspopup="true" aria-expanded="false">Programs
+              <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="service.html#community"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.6-3 2.8-4.6 5.5-4.6s4.9 1.6 5.5 4.6"/><circle cx="16.5" cy="9.5" r="2.4"/><path d="M15 14.6c2.2.2 3.9 1.6 4.4 4"/></svg>Community Development</a></li>
+              <li><a href="service.html#environment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19C5 9 12 4 20 4c0 9-5 15-14 15"/><path d="M5 19c2-5 5.5-8.5 10-10.5"/></svg>Environmental Care</a></li>
+              <li><a href="service.html#education"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4L2.5 8.5 12 13l9.5-4.5L12 4z"/><path d="M6.5 10.5V15c0 1.7 2.5 3 5.5 3s5.5-1.3 5.5-3v-4.5"/><path d="M21.5 8.5V13"/></svg>Education</a></li>
+              <li><a href="service.html#healthcare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>Healthcare</a></li>
+              <li><a href="service.html#food"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v7c0 1.5 1 2.5 2.5 2.5S10 11.5 10 10V3"/><path d="M7.5 3v18"/><path d="M17 3c-1.8 1.5-2.8 4-2.8 6.8 0 1.8 1 2.7 2.8 2.7V21"/></svg>Food Support</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a class="nav-link" href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved
+              <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="register.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-9.5-8.9C1 8 3 5 6.3 5c2.1 0 3.7 1.1 4.5 2.7.8-1.6 2.4-2.7 4.5-2.7C18.6 5 21 8 20.6 11.1 19.5 15.4 12 20 12 20z"/></svg>Volunteer</a></li>
+              <li><a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.5-4-8.5-7.9C2.2 9 4 6.3 6.8 6.3c1.9 0 3.3 1 4 2.4.7-1.4 2.1-2.4 4-2.4 2.8 0 4.6 2.7 3.3 5.8"/><path d="M12 20l7-3.5c.8-.4 1.2-1.3.8-2.1-.4-.9-1.5-1.2-2.4-.8L14 15"/></svg>Donate</a></li>
+              <li><a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.5 2.3 3.8 5.2 3.8 8.5s-1.3 6.2-3.8 8.5c-2.5-2.3-3.8-5.2-3.8-8.5s1.3-6.2 3.8-8.5z"/></svg>Partner With Us</a></li>
+              <li><a href="involved.html#events"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="16" rx="3"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/></svg>Events</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link" href="blog.html">Stories</a></li>
+          <li><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right">
+        <a class="header-call" href="tel:+919845012345">
+          <span class="call-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l1.5 4.5L8 10c1 2.5 3 4.5 5.5 5.5l1.5-2.5L19.5 14v4c0 1-1 2-2 1.8C10 19 5 14 4.2 6.5 4 5.5 4.5 4 5 4z"/></svg></span>
+          <span class="call-txt"><small>Call Us</small><strong>+91 98450 12345</strong></span>
+        </a>
+        <a class="btn btn-lime btn-sm" href="register.html" data-cursor="go">Become a Volunteer
+          <span class="btn-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span>
+        </a>
+        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <nav>
+      <ul>
+        <li><a class="m-link" href="index.html">Home <span class="m-num">01</span></a></li>
+        <li><a class="m-link" href="about.html">About Us <span class="m-num">02</span></a></li>
+        <li>
+          <a class="m-link" href="service.html">Programs <span class="m-num">03</span></a>
+          <div class="m-sub">
+            <a href="service.html#community">Community</a>
+            <a href="service.html#environment">Environment</a>
+            <a href="service.html#education">Education</a>
+            <a href="service.html#healthcare">Healthcare</a>
+            <a href="service.html#food">Food Support</a>
+          </div>
+        </li>
+        <li>
+          <a class="m-link" href="register.html">Get Involved <span class="m-num">04</span></a>
+          <div class="m-sub">
+            <a href="involved.html#volunteer">Volunteer</a>
+            <a href="involved.html#donate">Donate</a>
+            <a href="involved.html#partner">Partner</a>
+            <a href="involved.html#events">Events</a>
+          </div>
+        </li>
+        <li><a class="m-link" href="blog.html">Stories <span class="m-num">05</span></a></li>
+        <li><a class="m-link" href="contact.html">Contact <span class="m-num">06</span></a></li>
+      </ul>
+    </nav>
+    <div class="m-cta">
+      <a class="btn btn-lime" href="register.html">Become a Volunteer
+        <span class="btn-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span>
+      </a>
+      <a class="link-arrow light" href="login.html">Sign In
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="m-contact">
+      <span>Talk to our volunteer team</span>
+      <a href="mailto:hello@stackly.org">hello@stackly.org</a>
+      <a href="tel:+919845012345">+91 98450 12345</a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <section class="page-hero" aria-label="Volunteer programs">
+      <div class="page-hero-inner">
+        <div class="ph-bg"><img src="assets/img/remote/photo-1469571486292-0ba58a3f068b.webp" alt="Volunteers celebrating together outdoors" fetchpriority="high"></div>
+        <div class="ph-content">
+          <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><i></i><span>Programs</span></nav>
+          <h1>Find a cause.<br><em>Find your purpose.</em></h1>
+          <p>Nine volunteer programs, each with trained coordinators, clear roles, and impact you can see.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="All programs">
+      <div class="container">
+        <div class="program-row" id="community">
+          <div class="program-row-media" data-aos="fade-right">
+            <div class="img-reveal mask-reveal"><img src="assets/img/remote/photo-1559027615-cd4628902d4a.webp" alt="Volunteers organising supplies for a community development drive" loading="lazy"></div>
+            <span class="pr-num">01</span>
+          </div>
+          <div class="program-row-copy" data-aos="fade-left">
+            <span class="sec-label">Program 01</span>
+            <h2>Community Development</h2>
+            <p>Neighbourhood clean-ups, skill workshops, and public-space renewals that lift entire streets. We work with resident groups so improvements stick long after the drive ends.</p>
+            <div class="pr-impact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-8"/><path d="M22 20H2"/></svg>12,500+ families supported</div>
+            <h4 style="margin-bottom:12px">What volunteers do</h4>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Run weekend clean-up and beautification drives</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Facilitate skill and literacy workshops</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Coordinate with resident welfare groups</li>
+            </ul>
+            <a class="btn btn-dark btn-sm" href="register.html" data-cursor="go">Join This Program <span class="btn-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></a>
+          </div>
+        </div>
+        <div class="program-row" id="environment">
+          <div class="program-row-media" data-aos="fade-right">
+            <div class="img-reveal mask-reveal"><img src="assets/img/remote/photo-1542601906990-b4d3fb778b09.webp" alt="Hands planting a green seedling in rich soil" loading="lazy"></div>
+            <span class="pr-num">02</span>
+          </div>
+          <div class="program-row-copy" data-aos="fade-left">
+            <span class="sec-label">Program 02</span>
+            <h2>Environmental Care</h2>
+            <p>Tree plantations, lake restorations, and zero-waste campaigns that give nature room to breathe — with survival tracking so saplings become forests.</p>
+            <div class="pr-impact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-8"/><path d="M22 20H2"/></svg>48,000+ trees planted</div>
+            <h4 style="margin-bottom:12px">What volunteers do</h4>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Plant and geo-tag native saplings</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Join lake and beach restoration crews</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Lead zero-waste awareness in schools</li>
+            </ul>
+            <a class="btn btn-dark btn-sm" href="register.html" data-cursor="go">Join This Program <span class="btn-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></a>
+          </div>
+        </div>
+        <div class="program-row" id="education">
+          <div class="program-row-media" data-aos="fade-right">
+            <div class="img-reveal mask-reveal"><img src="assets/img/remote/photo-1517486808906-6ca8b3f04846.webp" alt="Students focused during a mentorship classroom session" loading="lazy"></div>
+            <span class="pr-num">03</span>
+          </div>
+          <div class="program-row-copy" data-aos="fade-left">
+            <span class="sec-label">Program 03</span>
+            <h2>Education & Mentorship</h2>
+            <p>Weekend classes, exam prep, and one-on-one mentoring for first-generation learners. Our mentors stay with students for a full academic year.</p>
+            <div class="pr-impact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-8"/><path d="M22 20H2"/></svg>6,200+ students mentored</div>
+            <h4 style="margin-bottom:12px">What volunteers do</h4>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Teach weekend English, maths, or science</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Mentor a student through the school year</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Host career-guidance and study-skill sessions</li>
+            </ul>
+            <a class="btn btn-dark btn-sm" href="register.html" data-cursor="go">Join This Program <span class="btn-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></a>
+          </div>
+        </div>
+        <div class="program-row" id="healthcare">
+          <div class="program-row-media" data-aos="fade-right">
+            <div class="img-reveal mask-reveal"><img src="assets/img/remote/photo-1576091160399-112ba8d25d1d.webp" alt="Healthcare volunteer running an awareness session" loading="lazy"></div>
+            <span class="pr-num">04</span>
+          </div>
+          <div class="program-row-copy" data-aos="fade-left">
+            <span class="sec-label">Program 04</span>
+            <h2>Healthcare & Awareness</h2>
+            <p>Preventive health camps, screenings, and awareness sessions that reach the last mile first — run with licensed medical partners.</p>
+            <div class="pr-impact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-8"/><path d="M22 20H2"/></svg>900+ health camps held</div>
+            <h4 style="margin-bottom:12px">What volunteers do</h4>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Assist at screening and vaccination camps</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Run hygiene and nutrition awareness sessions</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Support elder-care home visits</li>
+            </ul>
+            <a class="btn btn-dark btn-sm" href="register.html" data-cursor="go">Join This Program <span class="btn-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></a>
+          </div>
+        </div>
+        <div class="program-row" id="food">
+          <div class="program-row-media" data-aos="fade-right">
+            <div class="img-reveal mask-reveal"><img src="assets/img/remote/photo-1593113598332-cd288d649433.webp" alt="Volunteer packing food essentials for distribution" loading="lazy"></div>
+            <span class="pr-num">05</span>
+          </div>
+          <div class="program-row-copy" data-aos="fade-left">
+            <span class="sec-label">Program 05</span>
+            <h2>Food & Essentials Support</h2>
+            <p>Community kitchens, ration kits, and essentials drives for families facing hard weeks — with dignity-first distribution.</p>
+            <div class="pr-impact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-8"/><path d="M22 20H2"/></svg>1.1M+ meals served</div>
+            <h4 style="margin-bottom:12px">What volunteers do</h4>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Cook and serve at community kitchens</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Pack and deliver monthly ration kits</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Run clothing and essentials collection drives</li>
+            </ul>
+            <a class="btn btn-dark btn-sm" href="register.html" data-cursor="go">Join This Program <span class="btn-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></a>
+          </div>
+        </div>
+        <div class="program-row" id="empowerment">
+          <div class="program-row-media" data-aos="fade-right">
+            <div class="img-reveal mask-reveal"><img src="assets/img/remote/photo-1529156069898-49953e39b3ac.webp" alt="Young women laughing together at an empowerment workshop" loading="lazy"></div>
+            <span class="pr-num">06</span>
+          </div>
+          <div class="program-row-copy" data-aos="fade-left">
+            <span class="sec-label">Program 06</span>
+            <h2>Women & Youth Empowerment</h2>
+            <p>Skill circles, leadership clubs, and safe spaces where confidence becomes capability — for young women and first-jobbers.</p>
+            <div class="pr-impact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-8"/><path d="M22 20H2"/></svg>3,400+ women & youth trained</div>
+            <h4 style="margin-bottom:12px">What volunteers do</h4>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Facilitate digital and financial literacy circles</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Coach public-speaking and interview skills</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Mentor youth leadership club chapters</li>
+            </ul>
+            <a class="btn btn-dark btn-sm" href="register.html" data-cursor="go">Join This Program <span class="btn-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></a>
+          </div>
+        </div>
+        <div class="program-row" id="youth">
+          <div class="program-row-media" data-aos="fade-right">
+            <div class="img-reveal mask-reveal"><img src="assets/img/remote/photo-1523240795612-9a054b0db644.webp" alt="College students planning a volunteering chapter" loading="lazy"></div>
+            <span class="pr-num">07</span>
+          </div>
+          <div class="program-row-copy" data-aos="fade-left">
+            <span class="sec-label">Program 07</span>
+            <h2>Youth Leadership</h2>
+            <p>Campus chapters and youth-led projects that turn students into community organisers — with training, toolkits, and mentorship.</p>
+            <div class="pr-impact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-8"/><path d="M22 20H2"/></svg>120+ campus chapters</div>
+            <h4 style="margin-bottom:12px">What volunteers do</h4>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Start or lead a campus chapter</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Design a micro-project for your city</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Train in project planning and safety</li>
+            </ul>
+            <a class="btn btn-dark btn-sm" href="register.html" data-cursor="go">Join This Program <span class="btn-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></a>
+          </div>
+        </div>
+        <div class="program-row" id="relief">
+          <div class="program-row-media" data-aos="fade-right">
+            <div class="img-reveal mask-reveal"><img src="assets/img/remote/photo-1593113646773-028c64a8f1b8.webp" alt="Relief supplies prepared for affected families" loading="lazy"></div>
+            <span class="pr-num">08</span>
+          </div>
+          <div class="program-row-copy" data-aos="fade-left">
+            <span class="sec-label">Program 08</span>
+            <h2>Disaster Relief</h2>
+            <p>Trained rapid-response teams for floods, cyclones, and emergencies. Volunteers complete safety certification before deployment.</p>
+            <div class="pr-impact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-8"/><path d="M22 20H2"/></svg>38 emergency responses</div>
+            <h4 style="margin-bottom:12px">What volunteers do</h4>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Join the certified rapid-response roster</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Pack and stage emergency relief kits</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Support shelter logistics and reunification desks</li>
+            </ul>
+            <a class="btn btn-dark btn-sm" href="register.html" data-cursor="go">Join This Program <span class="btn-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></a>
+          </div>
+        </div>
+        <div class="program-row" id="animal">
+          <div class="program-row-media" data-aos="fade-right">
+            <div class="img-reveal mask-reveal"><img src="assets/img/remote/photo-1601758228041-f3b2795255f1.webp" alt="Volunteer gently caring for a rescued dog" loading="lazy"></div>
+            <span class="pr-num">09</span>
+          </div>
+          <div class="program-row-copy" data-aos="fade-left">
+            <span class="sec-label">Program 09</span>
+            <h2>Animal & Nature Care</h2>
+            <p>Rescue support, shelter drives, and habitat care for the voiceless neighbours we share our cities with.</p>
+            <div class="pr-impact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-8"/><path d="M22 20H2"/></svg>9,800+ animals cared for</div>
+            <h4 style="margin-bottom:12px">What volunteers do</h4>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Support weekend shelter care shifts</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Run adoption and sterilisation awareness</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>Maintain urban bird and bee habitats</li>
+            </ul>
+            <a class="btn btn-dark btn-sm" href="register.html" data-cursor="go">Join This Program <span class="btn-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-labelledby="service-cta">
+      <div class="cta-band-inner">
+        <div>
+          <h2 id="service-cta" data-aos="fade-up">Not sure where<br><em>you fit in?</em></h2>
+          <p data-aos="fade-up">Tell us your skills and hours — our coordinators will match you with the right program.</p>
+        </div>
+        <div class="cta-actions" data-aos="fade-up">
+          <a class="btn btn-lime" href="register.html" data-cursor="go">Become a Volunteer <span class="btn-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></a>
+          <a class="btn btn-outline-light" href="contact.html">Talk to Us <span class="btn-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Stackly — home">
+            <span class="brand-mark"><img src="assets/img/impact/logo.webp" alt="Stackly logo"></span>
+            <span class="brand-text"><span class="brand-name"><img src="assets/img/impact/logo STAC.webp" alt="Stackly"></span><span class="brand-tag">Volunteer Organization</span></span>
+          </a>
+          <p>Building stronger communities through people, purpose, and meaningful action.</p>
+          <div class="footer-contact">
+            <a href="mailto:hello@stackly.org"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>hello@stackly.org</a>
+            <a href="tel:+919845012345"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l1.5 4.5L8 10c1 2.5 3 4.5 5.5 5.5l1.5-2.5L19.5 14v4c0 1-1 2-2 1.8C10 19 5 14 4.2 6.5 4 5.5 4.5 4 5 4z"/></svg>+91 98450 12345</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="service.html">Programs</a></li>
+            <li><a href="involved.html">Get Involved</a></li>
+            <li><a href="blog.html">Stories</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="404.html">Community Support</a></li>
+            <li><a href="404.html">Environment</a></li>
+            <li><a href="404.html">Education</a></li>
+            <li><a href="404.html">Healthcare</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <ul>
+            <li><a href="404.html">Volunteer</a></li>
+            <li><a href="404.html">Donate</a></li>
+            <li><a href="404.html">Partner With Us</a></li>
+            <li><a href="404.html">Events</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="404.html">Stories</a></li>
+            <li><a href="404.html">Blog</a></li>
+            <li><a href="404.html">FAQ</a></li>
+            <li><a href="404.html">Impact Reports</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Stackly Volunteer Organization. All Rights Reserved.</span>
+        <div class="social">
+          <a href="404.html" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="404.html" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M8 10.5V17"/><path d="M8 7.5v.01"/><path d="M12 17v-3.8c0-1.5 1.2-2.7 2.7-2.7s2.8 1.2 2.8 2.7V17"/></svg></a>
+          <a href="404.html" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="4"/><path d="M10.5 9.8v4.4L14.8 12l-4.3-2.2z" fill="currentColor" stroke="none"/></svg></a>
+          <a href="404.html" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 8.5V7c0-.8.5-1.3 1.3-1.3H17V3h-2.5C11.9 3 10.5 4.6 10.5 7v1.5H8V12h2.5v9H14v-9h2.6l.4-3.5H14z"/></svg></a>
+        </div>
+        <div class="legal">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+  </button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="assets/js/navigation.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  
+</body>
+</html>
+</body>
+</html>
