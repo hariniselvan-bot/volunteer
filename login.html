@@ -103,25 +103,39 @@
         }
 
 
+
         /* =========================================
-           LOGO
+           STACKLY LOGO — TRANSPARENT + LIME GREEN
         ========================================= */
 
-        .brand-logo {
+        .stackly-transparent-logo {
             position: relative;
             z-index: 2;
             display: inline-flex;
             align-items: center;
             width: fit-content;
+            padding: 10px 14px;
+            background: transparent !important;
+            border: 0;
+            border-radius: 0;
         }
 
-        .brand-logo img {
+        .stackly-transparent-logo img {
             display: block;
             width: 150px;
             height: auto;
             object-fit: contain;
+            background: transparent !important;
+
+            /* Convert every non-transparent logo pixel to #c8ff00 */
+            filter: brightness(0) saturate(100%)
+                    invert(87%) sepia(98%) saturate(1174%)
+                    hue-rotate(22deg) brightness(105%) contrast(104%);
         }
 
+        .mobile-logo img {
+            background: transparent !important;
+        }
 
         /* =========================================
            BRAND CONTENT
@@ -239,6 +253,7 @@
         .mobile-logo img {
             width: 145px;
             height: auto;
+            background: transparent;
         }
 
 
@@ -735,7 +750,7 @@
 
         <section class="brand-panel">
 
-            <a href="index.html" class="brand-logo">
+            <a href="index.html" class="stackly-transparent-logo">
                 <img
                     src="assets/img/impact/logo STAC.webp"
                     alt="Stackly Logo"
