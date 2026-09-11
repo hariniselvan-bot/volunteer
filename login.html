@@ -253,7 +253,12 @@
         .mobile-logo img {
             width: 145px;
             height: auto;
-            background: transparent;
+            background: transparent !important;
+
+            /* Keep mobile logo color exactly the same as desktop */
+            filter: brightness(0) saturate(100%)
+                    invert(87%) sepia(98%) saturate(1174%)
+                    hue-rotate(22deg) brightness(105%) contrast(104%);
         }
 
 
