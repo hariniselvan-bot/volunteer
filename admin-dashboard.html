@@ -219,7 +219,7 @@ td strong{font-size:11px}
 <div class="overlay" id="overlay"></div>
 <!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
-<div class="logo">
+<div class="logo" id="dashboardLogo" role="button" tabindex="0" aria-label="Go to Overview Dashboard">
 <img alt="Stackly Logo" src="assets/img/impact/logo STAC.webp"/>
 </div>
 <div class="portal">Organizer Portal</div>
@@ -511,6 +511,17 @@ function openPage(id){
 }
 
 navButtons.forEach(btn=>btn.addEventListener("click",()=>openPage(btn.dataset.page)));
+
+const dashboardLogo=document.getElementById("dashboardLogo");
+
+dashboardLogo.addEventListener("click",()=>openPage("overview"));
+
+dashboardLogo.addEventListener("keydown",(event)=>{
+    if(event.key==="Enter" || event.key===" "){
+        event.preventDefault();
+        openPage("overview");
+    }
+});
 
 function getUserData(){
     const email=localStorage.getItem("stacklyEmail")||localStorage.getItem("email")||"organizer@example.com";

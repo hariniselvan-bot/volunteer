@@ -734,6 +734,85 @@
 
 
     /* =========================================================
+       PAGE HERO — CLEAN RESET / FIX
+       Prevent legacy global pseudo-elements from creating the
+       giant lime circle seen over the hero image.
+    ========================================================= */
+
+    .page-hero {
+      position: relative !important;
+      isolation: isolate !important;
+      overflow: hidden !important;
+      min-height: 560px;
+      border-radius: 32px;
+    }
+
+    .page-hero::before,
+    .page-hero::after,
+    .page-hero-inner::before,
+    .page-hero-inner::after,
+    .ph-bg::before,
+    .ph-bg::after,
+    .ph-content::before,
+    .ph-content::after {
+      content: none !important;
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: none !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+
+    .page-hero-inner {
+      position: relative !important;
+      min-height: 560px;
+      overflow: hidden !important;
+      isolation: isolate !important;
+    }
+
+    .page-hero .ph-bg {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 0 !important;
+      overflow: hidden !important;
+    }
+
+    .page-hero .ph-bg img {
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+    .page-hero .ph-content {
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    /* Keep the hero's own dark overlay subtle and rectangular. */
+    .page-hero .ph-bg {
+      background: #102B22;
+    }
+
+    .page-hero .ph-bg img {
+      opacity: 1 !important;
+    }
+
+    /* Disable any legacy circular background selectors that may be
+       inherited from the shared site styles. */
+    .page-hero [class*="circle"],
+    .page-hero [class*="orb"],
+    .page-hero [class*="blob"] {
+      max-width: 0 !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+    }
+
+    /* =========================================================
        MOBILE
     ========================================================= */
 
@@ -869,6 +948,14 @@
     }
 
 
+    @media (max-width: 700px) {
+      .page-hero,
+      .page-hero-inner {
+        min-height: 500px;
+        border-radius: 22px;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
 
       *,
@@ -882,95 +969,488 @@
 
     }
 
-  </style>
+  
+    /* =========================================================
+       STACKLY — OVERLAY SAFETY ONLY
+       Does not change the page design.
+       ========================================================= */
+    body > .preloader,
+    body > #preloader,
+    body > .page-transition {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transform: none !important;
+    }
+
+
+    /* =========================================================
+       STACKLY GET INVOLVED — FOOTER ONLY
+       Reference-style footer. Does not alter other sections.
+       ========================================================= */
+    .stkgi-footer {
+      position: relative !important;
+      width: calc(100% - 14px) !important;
+      margin: 0 7px !important;
+      background: #0c3026 !important;
+      color: rgba(255,255,255,.68) !important;
+      border-radius: 38px 38px 38px 38px !important;
+      overflow: hidden !important;
+      isolation: isolate !important;
+      box-sizing: border-box !important;
+    }
+
+    .stkgi-footer *,
+    .stkgi-footer *::before,
+    .stkgi-footer *::after {
+      box-sizing: border-box;
+    }
+
+    .stkgi-footer-shell {
+      position: relative;
+      width: min(1550px, calc(100% - 150px));
+      margin: 0 auto;
+      padding: 88px 0 0;
+    }
+
+    .stkgi-footer-grid {
+      display: grid;
+      grid-template-columns: 1.55fr 1fr 1.1fr 1.05fr 1fr;
+      column-gap: 64px;
+      align-items: start;
+    }
+
+    .stkgi-footer-brand {
+      min-width: 0;
+    }
+
+    .stkgi-footer-brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+      color: #bfff3f !important;
+    }
+
+    .stkgi-footer-logo {
+      width: 30px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .stkgi-footer-logo img {
+      width: 112px;
+      max-width: none;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter: none !important;
+    }
+
+    .stkgi-footer-brand-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1;
+    }
+
+    .stkgi-footer-brand-name {
+      color: #bfff3f;
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -.03em;
+    }
+
+    .stkgi-footer-brand-tag {
+      margin-top: 7px;
+      color: rgba(255,255,255,.48);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      white-space: nowrap;
+    }
+
+    .stkgi-footer-brand > p {
+      margin: 29px 0 31px;
+      max-width: 370px;
+      color: rgba(255,255,255,.70);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .stkgi-footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 19px;
+    }
+
+    .stkgi-footer-contact a {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      width: fit-content;
+      color: #bfff3f !important;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .stkgi-footer-contact svg {
+      width: 19px;
+      height: 19px;
+      flex: 0 0 auto;
+    }
+
+    .stkgi-footer-col h4 {
+      margin: 8px 0 27px;
+      color: #fff !important;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: .22em;
+      line-height: 1.2;
+    }
+
+    .stkgi-footer-col ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .stkgi-footer-col li {
+      margin: 0;
+      padding: 0;
+    }
+
+    .stkgi-footer-col a {
+      color: rgba(255,255,255,.68) !important;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 1.35;
+      transition: color .25s ease, transform .25s ease;
+      display: inline-block;
+    }
+
+    .stkgi-footer-col a:hover,
+    .stkgi-footer-legal a:hover {
+      color: #bfff3f !important;
+      transform: translateX(3px);
+    }
+
+    .stkgi-footer-divider {
+      width: 100%;
+      height: 1px;
+      margin-top: 76px;
+      background: rgba(255,255,255,.13);
+    }
+
+    .stkgi-footer-bottom {
+      min-height: 122px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 30px;
+      position: relative;
+    }
+
+    .stkgi-footer-copy {
+      color: rgba(255,255,255,.56);
+      font-size: 16px;
+    }
+
+    .stkgi-footer-social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+    }
+
+    .stkgi-footer-social a {
+      width: 53px;
+      height: 53px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 50%;
+      color: rgba(255,255,255,.65) !important;
+      text-decoration: none;
+      transition: border-color .25s ease, color .25s ease, transform .25s ease;
+    }
+
+    .stkgi-footer-social a:hover {
+      color: #bfff3f !important;
+      border-color: rgba(191,255,63,.5);
+      transform: translateY(-3px);
+    }
+
+    .stkgi-footer-social svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .stkgi-footer-legal {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .stkgi-footer-legal a {
+      color: rgba(255,255,255,.60) !important;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color .25s ease, transform .25s ease;
+    }
+
+    .stkgi-footer-top {
+      position: absolute;
+      right: 7px;
+      bottom: 31px;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      color: #bfff3f !important;
+      text-decoration: none;
+      font-size: 26px;
+      line-height: 1;
+      z-index: 3;
+    }
+
+    @media (max-width: 1100px) {
+      .stkgi-footer-shell {
+        width: min(100% - 70px, 950px);
+      }
+
+      .stkgi-footer-grid {
+        grid-template-columns: 1.4fr 1fr 1fr;
+        row-gap: 55px;
+      }
+
+      .stkgi-footer-brand {
+        grid-row: span 2;
+      }
+
+      .stkgi-footer-bottom {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 28px 0 35px;
+        gap: 22px;
+      }
+
+      .stkgi-footer-copy,
+      .stkgi-footer-legal {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .stkgi-footer-top {
+        bottom: 18px;
+        right: 5px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .stkgi-footer {
+        width: calc(100% - 20px) !important;
+        margin: 0 10px !important;
+        border-radius: 28px !important;
+      }
+
+      .stkgi-footer-shell {
+        width: calc(100% - 42px);
+        padding-top: 58px;
+      }
+
+      .stkgi-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 28px;
+        row-gap: 45px;
+      }
+
+      .stkgi-footer-brand {
+        grid-column: 1 / -1;
+        grid-row: auto;
+      }
+
+      .stkgi-footer-brand > p {
+        font-size: 16px;
+        margin-top: 24px;
+      }
+
+      .stkgi-footer-col h4 {
+        font-size: 12px;
+        margin-bottom: 21px;
+      }
+
+      .stkgi-footer-col ul {
+        gap: 16px;
+      }
+
+      .stkgi-footer-col a {
+        font-size: 15px;
+      }
+
+      .stkgi-footer-divider {
+        margin-top: 55px;
+      }
+
+      .stkgi-footer-bottom {
+        min-height: auto;
+        padding: 28px 0 42px;
+      }
+
+      .stkgi-footer-copy {
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .stkgi-footer-legal {
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      .stkgi-footer-legal a {
+        font-size: 13px;
+      }
+
+      .stkgi-footer-social a {
+        width: 45px;
+        height: 45px;
+      }
+
+      .stkgi-footer-top {
+        right: 0;
+        bottom: 7px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .stkgi-footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stkgi-footer-brand-name {
+        font-size: 21px;
+      }
+
+      .stkgi-footer-contact a {
+        font-size: 15px;
+      }
+    }
+
+</style>
+
+
+<style id="stkly-donate-final-fix">
+/* =========================================================
+   STACKLY DONATE — VISIBILITY FIX ONLY
+   Original design values are preserved.
+   ========================================================= */
+
+section#donate.stkly-donate-section {
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  min-height: 520px !important;
+  padding: 120px 0 !important;
+  margin: 0 !important;
+  background: var(--green) !important;
+  color: var(--white) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  z-index: 10 !important;
+}
+
+section#donate.stkly-donate-section::before {
+  content: "" !important;
+  position: absolute !important;
+  width: 600px !important;
+  height: 600px !important;
+  right: -250px !important;
+  top: -250px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(201,244,90,.15) !important;
+  box-shadow:
+    0 0 0 80px rgba(201,244,90,.025),
+    0 0 0 160px rgba(201,244,90,.018) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+section#donate.stkly-donate-section .gi-container {
+  position: relative !important;
+  z-index: 2 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+section#donate.stkly-donate-section .gi-donate-grid {
+  display: grid !important;
+  grid-template-columns: .9fr 1.1fr !important;
+  gap: 80px !important;
+  align-items: center !important;
+  position: relative !important;
+  z-index: 2 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+section#donate.stkly-donate-section .gi-donate-copy,
+section#donate.stkly-donate-section .gi-donation-card {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+section#donate.stkly-donate-section .gi-donation-card {
+  position: relative !important;
+  z-index: 3 !important;
+  padding: 45px !important;
+  border-radius: 30px !important;
+  background: rgba(255,255,255,.07) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  backdrop-filter: blur(15px) !important;
+}
+
+section#donate.stkly-donate-section .gi-title.light {
+  color: var(--white) !important;
+}
+
+section#donate.stkly-donate-section .gi-label.light {
+  color: var(--lime) !important;
+}
+
+section#donate.stkly-donate-section .gi-donate-copy p {
+  color: rgba(255,255,255,.68) !important;
+}
+
+@media (max-width: 1000px) {
+  section#donate.stkly-donate-section {
+    padding: 80px 0 !important;
+    min-height: 0 !important;
+  }
+
+  section#donate.stkly-donate-section .gi-donate-grid {
+    grid-template-columns: 1fr !important;
+    gap: 45px !important;
+  }
+}
+</style>
 
 </head>
 
 
 <body>
-
-
-  <!-- =======================================================
-       PRELOADER
-  ======================================================== -->
-
-  <div class="preloader" id="preloader" aria-hidden="true">
-
-    <div class="pre-inner">
-
-      <div class="pre-logo"><img src="assets/img/impact/logo.webp" alt="Stackly logo"></div>
-
-      <div class="pre-word">
-        <strong>Stackly</strong>
-        <small>Volunteer Organization</small>
-      </div>
-
-      <div class="pre-bar">
-        <i></i>
-      </div>
-
-      <div class="pre-count">
-        0%
-      </div>
-
-    </div>
-
-  </div>
-
-
-
-  <!-- =======================================================
-       PAGE TRANSITION
-  ======================================================== -->
-
-  <div
-    class="page-transition"
-    aria-hidden="true">
-
-    <svg
-      viewBox="0 0 48 48"
-      xmlns="http://www.w3.org/2000/svg">
-
-      <rect
-        width="48"
-        height="48"
-        rx="14"
-        fill="#C9F45A"/>
-
-      <path
-        d="M30.5 13.8c-5.2 0-9 3.1-9 7.4 0 6.3 10.6 5.2 10.6 10.7 0 4-3.4 6.9-8.1 6.9-3.8 0-7-1.9-8.6-4.7"
-        fill="none"
-        stroke="#102B22"
-        stroke-width="3.6"
-        stroke-linecap="round"/>
-
-      <circle
-        cx="31"
-        cy="12.8"
-        r="2.8"
-        fill="#102B22"/>
-
-    </svg>
-
-  </div>
-
-
-
-  <!-- =======================================================
-       SCROLL PROGRESS
-  ======================================================== -->
-
-  <div
-    class="scroll-progress"
-    aria-hidden="true">
-
-    <i></i>
-
-  </div>
-
-
-
-  <!-- =======================================================
+<!-- =======================================================
        HEADER
   ======================================================== -->
 
@@ -1520,162 +2000,7 @@
       </div>
     </section>
 
-    <section class="gi-hero" aria-hidden="true" style="display: none;">
-
-      <div class="gi-hero-inner">
-
-
-        <div class="gi-hero-content">
-
-          <div
-            class="gi-eyebrow"
-            data-aos="fade-up">
-
-            <i></i>
-
-            Get Involved
-
-          </div>
-
-
-          <h1
-            class="gi-hero-title"
-            data-aos="fade-up"
-            data-aos-delay="100">
-
-            Your time.
-            <br>
-
-            Your skills.
-            <br>
-
-            <em>Your impact.</em>
-
-          </h1>
-
-
-          <p
-            class="gi-hero-text"
-            data-aos="fade-up"
-            data-aos-delay="180">
-
-            There is more than one way to make a difference.
-            Volunteer your time, support a cause, partner with
-            our mission, or join an event near you.
-
-          </p>
-
-
-          <div
-            class="gi-hero-actions"
-            data-aos="fade-up"
-            data-aos-delay="260">
-
-            <a
-              class="btn btn-lime"
-              href="#volunteer">
-
-              Start Volunteering
-
-              <span class="btn-circle">
-
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.2">
-
-                  <path d="M7 17L17 7"/>
-                  <path d="M8 7h9v9"/>
-
-                </svg>
-
-              </span>
-
-            </a>
-
-
-            <a
-              class="link-arrow light"
-              href="#ways">
-
-              Explore Ways
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.2">
-
-                <path d="M7 17L17 7"/>
-                <path d="M8 7h9v9"/>
-
-              </svg>
-
-            </a>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- HERO IMAGE -->
-
-        <div
-          class="gi-visual"
-          data-aos="fade-left"
-          data-aos-delay="200">
-
-          <div class="gi-main-image">
-
-            <img
-              src="assets/img/about/about-community.webp"
-              alt="Stackly volunteers working together">
-
-          </div>
-
-
-          <div
-            class="gi-floating-card"
-            data-aos="zoom-in"
-            data-aos-delay="500">
-
-            <div class="gi-floating-icon">
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8">
-
-                <path
-                  d="M12 20s-7.5-4.6-9.5-8.9C1 8 3 5 6.3 5c2.1 0 3.7 1.1 4.5 2.7.8-1.6 2.4-2.7 4.5-2.7C18.6 5 21 8 20.6 11.1 19.5 15.4 12 20 12 20z"/>
-
-              </svg>
-
-            </div>
-
-            <strong>
-              People • Purpose • Progress
-            </strong>
-
-            <span>
-              Every contribution creates a ripple
-              of positive change.
-            </span>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
+        <!-- =====================================================
          02 WAYS TO GET INVOLVED
     ====================================================== -->
 
@@ -2163,7 +2488,7 @@
 
             <a
               class="btn btn-lime"
-              href="register.html">
+              href="login.html">
 
               Become a Volunteer
 
@@ -2199,144 +2524,268 @@
          04 DONATE
     ====================================================== -->
 
-    <section
-      class="gi-section gi-dark"
-      id="donate">
+<style id="stkly-donate-final-fix">
+/* =========================================================
+   STACKLY DONATE — FINAL VISIBILITY FIX
+   Keeps the original design.
+   Removes unwanted global overlay/pseudo-element conflicts.
+   ========================================================= */
 
-      <div class="gi-container">
+section#donate.stkly-donate-section {
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  min-height: 520px !important;
+  padding: 120px 0 !important;
+  margin: 0 !important;
 
-        <div class="gi-donate-grid">
+  /* Force the intended dark green */
+  background: #102b22 !important;
+  color: #ffffff !important;
 
+  opacity: 1 !important;
+  visibility: visible !important;
+  overflow: hidden !important;
 
-          <div
-            class="gi-donate-copy"
-            data-aos="fade-right">
+  isolation: isolate !important;
+  z-index: 10 !important;
+}
 
-            <span class="gi-label light">
-              Support The Mission
-            </span>
+/* ---------------------------------------------------------
+   IMPORTANT:
+   Remove unwanted global pseudo-element overlay.
+   The original circular decoration is recreated below.
+   --------------------------------------------------------- */
 
+section#donate.stkly-donate-section::after {
+  content: none !important;
+  display: none !important;
 
-            <h2 class="gi-title light">
+  width: 0 !important;
+  height: 0 !important;
 
-              Your generosity
-              <br>
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
 
-              <em class="lime">
-                becomes action.
-              </em>
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
 
-            </h2>
+/* ---------------------------------------------------------
+   Original decorative lime circle
+   --------------------------------------------------------- */
 
+section#donate.stkly-donate-section::before {
+  content: "" !important;
 
-            <p>
+  position: absolute !important;
 
-              Donations help us run community programs,
-              provide essential support and respond quickly
-              when people need help most.
+  width: 600px !important;
+  height: 600px !important;
 
-            </p>
+  right: -250px !important;
+  top: -250px !important;
 
+  border-radius: 50% !important;
 
-            <p>
+  border: 1px solid rgba(201, 244, 90, 0.15) !important;
 
-              Every contribution, large or small, helps turn
-              good intentions into measurable impact.
+  background: transparent !important;
 
-            </p>
+  box-shadow:
+    0 0 0 80px rgba(201, 244, 90, 0.025),
+    0 0 0 160px rgba(201, 244, 90, 0.018) !important;
 
-          </div>
+  opacity: 1 !important;
+  visibility: visible !important;
 
+  pointer-events: none !important;
 
+  z-index: 0 !important;
+}
 
-          <div
-            class="gi-donation-card"
-            data-aos="fade-left">
+/* ---------------------------------------------------------
+   Container
+   --------------------------------------------------------- */
 
-            <h3>
-              Make a Difference
-            </h3>
+section#donate.stkly-donate-section .gi-container {
+  position: relative !important;
+  z-index: 5 !important;
 
+  opacity: 1 !important;
+  visibility: visible !important;
+}
 
-            <p>
-              Choose an amount to support Stackly's work.
-            </p>
+/* ---------------------------------------------------------
+   Main Donate Grid
+   --------------------------------------------------------- */
 
+section#donate.stkly-donate-section .gi-donate-grid {
+  display: grid !important;
 
-            <div class="gi-amounts">
+  grid-template-columns: .9fr 1.1fr !important;
 
-              <button
-                class="gi-amount active"
-                type="button">
-                ₹500
-              </button>
+  gap: 80px !important;
 
-              <button
-                class="gi-amount"
-                type="button">
-                ₹1,000
-              </button>
+  align-items: center !important;
 
-              <button
-                class="gi-amount"
-                type="button">
-                ₹2,500
-              </button>
+  position: relative !important;
 
-              <button
-                class="gi-amount"
-                type="button">
-                ₹5,000
-              </button>
+  z-index: 5 !important;
 
-              <button
-                class="gi-amount"
-                type="button">
-                ₹10,000
-              </button>
+  opacity: 1 !important;
+  visibility: visible !important;
+}
 
-              <button
-                class="gi-amount"
-                type="button">
-                Other
-              </button>
+/* ---------------------------------------------------------
+   Left Content
+   --------------------------------------------------------- */
 
-            </div>
+section#donate.stkly-donate-section .gi-donate-copy {
+  position: relative !important;
+  z-index: 6 !important;
 
+  opacity: 1 !important;
+  visibility: visible !important;
 
-            <a
-              class="btn btn-lime"
-              href="contact.html">
+  transform: none !important;
+}
 
-              Continue to Donate
+section#donate.stkly-donate-section .gi-donate-copy .gi-label.light {
+  color: #c9f45a !important;
+}
 
-              <span class="btn-circle">
+section#donate.stkly-donate-section .gi-donate-copy .gi-title.light {
+  color: #ffffff !important;
+}
 
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.2">
+section#donate.stkly-donate-section .gi-donate-copy .gi-title em,
+section#donate.stkly-donate-section .gi-donate-copy .gi-title em.lime {
+  color: #c9f45a !important;
+}
 
-                  <path d="M7 17L17 7"/>
-                  <path d="M8 7h9v9"/>
+section#donate.stkly-donate-section .gi-donate-copy p {
+  color: rgba(255, 255, 255, 0.68) !important;
+}
 
-                </svg>
+/* ---------------------------------------------------------
+   Donation Card
+   --------------------------------------------------------- */
 
-              </span>
+section#donate.stkly-donate-section .gi-donation-card {
+  position: relative !important;
 
-            </a>
+  z-index: 6 !important;
 
-          </div>
+  padding: 45px !important;
 
-        </div>
+  border-radius: 30px !important;
 
-      </div>
+  background: rgba(255, 255, 255, 0.07) !important;
 
-    </section>
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
 
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
 
+  opacity: 1 !important;
+  visibility: visible !important;
 
+  transform: none !important;
+}
+
+/* Donation card heading */
+section#donate.stkly-donate-section .gi-donation-card h3 {
+  color: #ffffff !important;
+}
+
+/* Donation card paragraph */
+section#donate.stkly-donate-section .gi-donation-card p {
+  color: rgba(255, 255, 255, 0.68) !important;
+}
+
+/* ---------------------------------------------------------
+   Donation Amount Buttons
+   --------------------------------------------------------- */
+
+section#donate.stkly-donate-section .gi-amount {
+  padding: 15px !important;
+
+  border-radius: 12px !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+
+  background: transparent !important;
+
+  color: #ffffff !important;
+
+  font: inherit !important;
+
+  cursor: pointer !important;
+
+  transition:
+    background .3s ease,
+    color .3s ease,
+    border-color .3s ease,
+    transform .3s ease !important;
+}
+
+section#donate.stkly-donate-section .gi-amount:hover,
+section#donate.stkly-donate-section .gi-amount.active {
+  background: #c9f45a !important;
+
+  color: #102b22 !important;
+
+  border-color: #c9f45a !important;
+}
+
+/* ---------------------------------------------------------
+   Continue Button
+   --------------------------------------------------------- */
+
+section#donate.stkly-donate-section .btn-lime {
+  position: relative !important;
+  z-index: 7 !important;
+
+  background: #c9f45a !important;
+  color: #102b22 !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+
+  section#donate.stkly-donate-section {
+    padding: 80px 0 !important;
+    min-height: 0 !important;
+  }
+
+  section#donate.stkly-donate-section .gi-donate-grid {
+    grid-template-columns: 1fr !important;
+    gap: 45px !important;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  section#donate.stkly-donate-section .gi-donation-card {
+    padding: 25px !important;
+  }
+
+  section#donate.stkly-donate-section .gi-amounts {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+}
+</style>
     <!-- =====================================================
          05 PARTNER
     ====================================================== -->
@@ -2796,224 +3245,385 @@
   <!-- =======================================================
        FOOTER
   ======================================================== -->
+<!-- =======================================================
+     FOOTER — SAME AS CONTACT PAGE
+======================================================== -->
 
-  <footer class="footer">
+<footer class="footer">
+  <div class="container">
 
-    <div class="container">
+    <div class="footer-grid">
 
+      <!-- BRAND -->
+      <div class="footer-brand">
 
-      <div class="footer-grid">
+        <a class="brand" href="index.html" aria-label="Stackly — home">
 
+          <span class="brand-mark">
+            <img
+              src="assets/img/impact/logo.webp"
+              alt="Stackly logo">
+          </span>
 
-        <!-- BRAND -->
+          <span class="brand-text">
 
-        <div class="footer-brand">
-
-          <a
-            class="brand"
-            href="index.html">
-
-            <span class="brand-mark"><img src="assets/img/impact/logo.webp" alt="Stackly logo"></span>
-
-
-            <span class="brand-text">
-
-              <span class="brand-name"><img src="assets/img/impact/logo STAC.webp" alt="Stackly"></span>
-
-              <span class="brand-tag">
-                Volunteer Organization
-              </span>
-
+            <span class="brand-name">
+              <img
+                src="assets/img/impact/logo STAC.webp"
+                alt="Stackly">
             </span>
 
+            <span class="brand-tag">
+              Volunteer Organization
+            </span>
+
+          </span>
+
+        </a>
+
+        <p>
+          Building stronger communities through people,
+          purpose, and meaningful action.
+        </p>
+
+        <div class="footer-contact">
+
+          <a href="mailto:hello@stackly.org">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8">
+              <rect
+                x="3"
+                y="5.5"
+                width="18"
+                height="13"
+                rx="2.5"/>
+              <path d="M3.5 7l8.5 6 8.5-6"/>
+            </svg>
+
+            hello@stackly.org
           </a>
 
+          <a href="tel:+919845012345">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8">
+              <path
+                d="M5 4h4l1.5 4.5L8 10c1 2.5 3 4.5 5.5 5.5l1.5-2.5L19.5 14v4c0 1-1 2-2 1.8C10 19 5 14 4.2 6.5 4 5.5 4.5 4 5 4z"/>
+            </svg>
 
-          <p>
-            People, purpose and progress —
-            together for a stronger tomorrow.
-          </p>
-
-          <div class="footer-contact">
-            <a href="mailto:hello@stackly.org"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>hello@stackly.org</a>
-            <a href="tel:+919845012345"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l1.5 4.5L8 10c1 2.5 3 4.5 5.5 5.5l1.5-2.5L19.5 14v4c0 1-1 2-2 1.8C10 19 5 14 4.2 6.5 4 5.5 4.5 4 5 4z"/></svg>+91 98450 12345</a>
-          </div>
-
-        </div>
-
-
-
-        <!-- ABOUT -->
-
-        <div class="footer-col">
-
-          <h4>About</h4>
-
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="service.html">Programs</a></li>
-            <li><a href="involved.html">Get Involved</a></li>
-            <li><a href="blog.html">Stories</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+            +91 98450 12345
+          </a>
 
         </div>
-
-
-
-        <!-- PROGRAMS -->
-
-        <div class="footer-col">
-
-          <h4>
-            Programs
-          </h4>
-
-          <ul>
-
-            <li>
-              <a href="404.html">
-                Community Development
-              </a>
-            </li>
-
-            <li>
-              <a href="404.html">
-                Environmental Care
-              </a>
-            </li>
-
-            <li>
-              <a href="404.html">
-                Education
-              </a>
-            </li>
-
-            <li>
-              <a href="404.html">
-                Healthcare
-              </a>
-            </li>
-
-          </ul>
-
-        </div>
-
-
-
-        <!-- GET INVOLVED -->
-
-        <div class="footer-col">
-
-          <h4>
-            Get Involved
-          </h4>
-
-          <ul>
-
-            <li>
-              <a href="404.html">
-                Volunteer
-              </a>
-            </li>
-
-            <li>
-              <a href="404.html">
-                Donate
-              </a>
-            </li>
-
-            <li>
-              <a href="404.html">
-                Partner With Us
-              </a>
-            </li>
-
-            <li>
-              <a href="404.html">
-                Events
-              </a>
-            </li>
-
-          </ul>
-
-        </div>
-
-
-
-        <!-- CONTACT -->
-
-        <div class="footer-col">
-
-          <h4>
-            Contact
-          </h4>
-
-          <ul>
-
-            <li>
-              <a href="mailto:hello@stackly.org">
-                hello@stackly.org
-              </a>
-            </li>
-
-            <li>
-              <a href="tel:+919845012345">
-                +91 98450 12345
-              </a>
-            </li>
-
-            <li>
-              <a href="contact.html">
-                Contact Us
-              </a>
-            </li>
-
-          </ul>
-
-        </div>
-
-        <!-- RESOURCES -->
-
-        <div class="footer-col">
-
-          <h4>Resources</h4>
-
-          <ul>
-            <li><a href="404.html">Stories</a></li>
-            <li><a href="404.html">Blog</a></li>
-            <li><a href="404.html">FAQ</a></li>
-            <li><a href="404.html">Impact Reports</a></li>
-          </ul>
-
-        </div>
-
 
       </div>
 
 
+      <!-- ABOUT -->
+      <div class="footer-col">
 
-      <div class="footer-bottom">
+        <h4>About</h4>
 
-        <span>© <span data-year>2026</span> Stackly Volunteer Organization. All Rights Reserved.</span>
-        <div class="social">
-          <a href="404.html" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="404.html" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M8 10.5V17"/><path d="M8 7.5v.01"/><path d="M12 17v-3.8c0-1.5 1.2-2.7 2.7-2.7s2.8 1.2 2.8 2.7V17"/></svg></a>
-          <a href="404.html" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="4"/><path d="M10.5 9.8v4.4L14.8 12l-4.3-2.2z" fill="currentColor" stroke="none"/></svg></a>
-          <a href="404.html" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 8.5V7c0-.8.5-1.3 1.3-1.3H17V3h-2.5C11.9 3 10.5 4.6 10.5 7v1.5H8V12h2.5v9H14v-9h2.6l.4-3.5H14z"/></svg></a>
-        </div>
-        <div class="legal">
-          <a href="404.html">Privacy Policy</a>
-          <a href="404.html">Terms &amp; Conditions</a>
-        </div>
+        <ul>
+
+          <li>
+            <a href="index.html">
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a href="about.html">
+              About Us
+            </a>
+          </li>
+
+          <li>
+            <a href="service.html">
+              Programs
+            </a>
+          </li>
+
+          <li>
+            <a href="involved.html">
+              Get Involved
+            </a>
+          </li>
+
+          <li>
+            <a href="blog.html">
+              Stories
+            </a>
+          </li>
+
+          <li>
+            <a href="contact.html">
+              Contact
+            </a>
+          </li>
+
+        </ul>
 
       </div>
 
+
+      <!-- PROGRAMS -->
+      <div class="footer-col">
+
+        <h4>Programs</h4>
+
+        <ul>
+
+          <li>
+            <a href="404.html">
+              Community Support
+            </a>
+          </li>
+
+          <li>
+            <a href="404.html">
+              Environment
+            </a>
+          </li>
+
+          <li>
+            <a href="404.html">
+              Education
+            </a>
+          </li>
+
+          <li>
+            <a href="404.html">
+              Healthcare
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- GET INVOLVED -->
+      <div class="footer-col">
+
+        <h4>Get Involved</h4>
+
+        <ul>
+
+          <li>
+            <a href="404.html">
+              Volunteer
+            </a>
+          </li>
+
+          <li>
+            <a href="404.html">
+              Donate
+            </a>
+          </li>
+
+          <li>
+            <a href="404.html">
+              Partner With Us
+            </a>
+          </li>
+
+          <li>
+            <a href="404.html">
+              Events
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- RESOURCES -->
+      <div class="footer-col">
+
+        <h4>Resources</h4>
+
+        <ul>
+
+          <li>
+            <a href="404.html">
+              Stories
+            </a>
+          </li>
+
+          <li>
+            <a href="404.html">
+              Blog
+            </a>
+          </li>
+
+          <li>
+            <a href="404.html">
+              FAQ
+            </a>
+          </li>
+
+          <li>
+            <a href="404.html">
+              Impact Reports
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
 
     </div>
 
-  </footer>
+
+    <!-- FOOTER BOTTOM -->
+
+    <div class="footer-bottom">
+
+      <span>
+        ©
+        <span data-year>2026</span>
+        Stackly Volunteer Organization.
+        All Rights Reserved.
+      </span>
+
+
+      <!-- SOCIAL -->
+
+      <div class="social">
+
+        <a
+          href="404.html"
+          aria-label="Instagram">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8">
+
+            <rect
+              x="3.5"
+              y="3.5"
+              width="17"
+              height="17"
+              rx="5"/>
+
+            <circle
+              cx="12"
+              cy="12"
+              r="4"/>
+
+            <circle
+              cx="17.2"
+              cy="6.8"
+              r="1"
+              fill="currentColor"
+              stroke="none"/>
+
+          </svg>
+
+        </a>
+
+
+        <a
+          href="404.html"
+          aria-label="LinkedIn">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8">
+
+            <rect
+              x="3.5"
+              y="3.5"
+              width="17"
+              height="17"
+              rx="4"/>
+
+            <path d="M8 10.5V17"/>
+            <path d="M8 7.5v.01"/>
+            <path
+              d="M12 17v-3.8c0-1.5 1.2-2.7 2.7-2.7s2.8 1.2 2.8 2.7V17"/>
+
+          </svg>
+
+        </a>
+
+
+        <a
+          href="404.html"
+          aria-label="YouTube">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8">
+
+            <rect
+              x="3"
+              y="6"
+              width="18"
+              height="12"
+              rx="4"/>
+
+            <path
+              d="M10.5 9.8v4.4L14.8 12l-4.3-2.2z"
+              fill="currentColor"
+              stroke="none"/>
+
+          </svg>
+
+        </a>
+
+
+        <a
+          href="404.html"
+          aria-label="Facebook">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8">
+
+            <path
+              d="M14 8.5V7c0-.8.5-1.3 1.3-1.3H17V3h-2.5C11.9 3 10.5 4.6 10.5 7v1.5H8V12h2.5v9H14v-9h2.6l.4-3.5H14z"/>
+
+          </svg>
+
+        </a>
+
+      </div>
+
+
+      <!-- LEGAL -->
+
+      <div class="legal">
+
+        <a href="404.html">
+          Privacy Policy
+        </a>
+
+        <a href="404.html">
+          Terms &amp; Conditions
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</footer>
 
 
 

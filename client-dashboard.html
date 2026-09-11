@@ -623,7 +623,7 @@ th{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:#888}
 <body>
 <div class="app">
 <aside class="sidebar" id="sidebar">
-<div class="logo">
+<div class="logo" id="dashboardLogo" role="button" tabindex="0" aria-label="Go to My Dashboard">
 <img alt="Stackly Logo" src="assets/img/impact/logo STAC.webp" style="filter:brightness(0) saturate(100%) invert(84%) sepia(100%) saturate(1800%) hue-rotate(25deg) brightness(105%) contrast(105%);"/>
 </div>
 <div class="portal-label">VOLUNTEER PORTAL</div>
@@ -1014,6 +1014,7 @@ const pages = {
 
 const navButtons = document.querySelectorAll(".nav-btn");
 const pageTitle = document.getElementById("pageTitle");
+const dashboardLogo = document.getElementById("dashboardLogo");
 
 function showPage(id){
   document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
@@ -1031,6 +1032,18 @@ function showPage(id){
 
 navButtons.forEach(btn=>{
   btn.addEventListener("click",()=>showPage(btn.dataset.page));
+});
+
+
+dashboardLogo.addEventListener("click",()=>{
+  showPage("dashboard");
+});
+
+dashboardLogo.addEventListener("keydown",(event)=>{
+  if(event.key==="Enter" || event.key===" "){
+    event.preventDefault();
+    showPage("dashboard");
+  }
 });
 
 const sidebar=document.getElementById("sidebar");
